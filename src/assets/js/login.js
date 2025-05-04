@@ -1,23 +1,6 @@
-let currentLang = localStorage.getItem('language') || "fi";
+
 let pinCode = "";
 const correctPin = "1234";
-
-// Lataa käännökset
-fetch('/src/data/lang.json')
-    .then(response => response.json())
-    .then(langData => {
-        updateLanguage(currentLang, langData);
-    });
-
-// Päivitä kieli
-function updateLanguage(lang, langData) {
-    document.querySelectorAll('[data-lang]').forEach(element => {
-        const key = element.getAttribute('data-lang');
-        if (langData[key] && langData[key][lang]) {
-            element.textContent = langData[key][lang];
-        }
-    });
-}
 
 // Lisää numero PIN-koodiin
 document.querySelectorAll('.btn-num').forEach(button => {
