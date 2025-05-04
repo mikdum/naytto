@@ -1,0 +1,107 @@
+{
+    "coffee": {
+        "ru": "Кофе",
+        "fi": "Kahvi",
+        "en": "coffee",
+        "items": [
+            {
+                "id": "1",
+                "fi": "Espresso",
+                "ru": "Эспрессо",
+                "en": "Espresso",
+                "price": 2
+            },
+            {
+                "id": "2",
+                "fi": "Double Espresso",
+                "ru": "Двойной эспрессо",
+                "en": "Double Espresso",
+                "price": 2.5
+            },
+            {
+                "id": "3",
+                "fi": "Latte",
+                "ru": "Латте",
+                "en": "Latte",
+                "price": 2.8
+            },
+            {
+                "id": "4",
+                "fi": "Kahvi",
+                "ru": "Американо",
+                "en": "Americano",
+                "price": 2.2
+            }
+        ]
+    },
+    "Tea": {
+        "ru": "Чай",
+        "fi": "Tee",
+        "en": "Tea",
+        "items": [
+            {
+                "id": "5",
+                "fi": "musta tee",
+                "ru": "Черный чай",
+                "en": "Black tea",
+                "price": 2
+            },
+            {
+                "id": "6",
+                "fi": "Lemon tea",
+                "ru": "Лимонный чай",
+                "en": "Lemon tea",
+                "price": 2.5
+            },
+            {
+                "id": "7",
+                "fi": "Mango tee",
+                "ru": "Манговый чай",
+                "en": "Mango tea",
+                "price": 2.8
+            },
+            {
+                "id": "8",
+                "fi": "vihreä tee",
+                "ru": "Зеленый чай",
+                "en": "Green tea",
+                "price": 2.2
+            }
+        ]
+    },
+    "Desserts": {
+        "ru": "Десерты",
+        "fi": "Makea",
+        "en": "Desserts",
+        "items": [
+            {
+                "id": "9",
+                "fi": "Mansikkavohvelit",
+                "ru": "Клубничные вафли",
+                "en": "Strawberry Waffle",
+                "price": 2
+            },
+            {
+                "id": "10",
+                "fi": "Kanelirulla",
+                "ru": "Рулет с корицей",
+                "en": "Cinnamob=n Roll",
+                "price": 2.5
+            },
+            {
+                "id": "11",
+                "fi": "Siitrunapiirakka",
+                "ru": "Лимонный пирог",
+                "en": "Lemon Pie",
+                "price": 2.8
+            },
+            {
+                "id": "12",
+                "fi": "Croissant",
+                "ru": "Круасан",
+                "en": "Croissant",
+                "price": 2.2
+            }
+        ]
+    }
+}
