@@ -1,4 +1,14 @@
 {
+    "Welcome": {
+        "ru": "Добро пожаловать",
+        "en": "Welcome",
+        "fi": "Tervetuloa"
+    },
+    "LoginToContinue": {
+        "ru": "Войдите, чтобы продолжить",
+        "en": "Login to continue",
+        "fi": "Kirjaudu sisään jatkaaksesi"
+    },
     "AboutCompanytitle": {
         "ru": "О комании",
         "en": "About company",
@@ -18,64 +28,70 @@
         "ru": "© 2025 Копирайт: Михаил Думма ",
         "fi": "© 2025 Mikhail Dumma",
         "en": "© 2025 Copyright: Mikhail Dumma"
-    }    
-,   
+    },
+    "ContactInfo": {
+        "ru": "Контактная информация",
+        "en": "Contact information",
+        "fi": "Yhteystiedot"
+    },
     "Openinghours": {
         "ru": "Часы работы",
         "fi": "Aukioloajat",
         "en": "Opening hours"
-    }  
-    ,   
+    },
     "Openinghours11": {
         "ru": "Пон - Четв",
         "fi": "Ma - To",
-        "en": "Mon - Thu:"
-    }
-    ,   
+        "en": "Mon - Thu"
+    },
     "Openinghours12": {
         "ru": "08:00 - 21:00",
         "fi": "8am - 9pm",
         "en": "8am - 9pm"
-    }
-    ,   
+    },
     "Openinghours21": {
         "ru": "Пятн -Субб",
-        "fi": "Pe - La:",
-        "en": "Fri - Sat:"
-    }
-    ,   
+        "fi": "Pe - La",
+        "en": "Fri - Sat"
+    },
     "Openinghours22": {
         "ru": "08:00-23:00",
         "fi": "8am - 11pm",
         "en": "8am - 11pm"
-    }
-    ,   
+    },
     "Openinghours31": {
         "ru": "Воскресенье",
         "fi": "Su",
         "en": "Sun"
-    }
-    ,   
+    },
     "Openinghours32": {
         "ru": "09:00 - 22:00",
         "fi": "9am - 10pm",
         "en": "9am - 10pm"
-    }
-    ,   
+    },
     "Kaupunki": {
         "ru": "Финляндия, Миккели, 50600",
         "fi": "Suomi, Mikkeli, 50600",
-        "en": "Finland Mikkeli, 50600"
-    }
-    ,   
+        "en": "Finland, Mikkeli, 50600"
+    },
     "EnterPinCode": {
         "ru": "Введите Пинкод",
         "fi": "Syötä pin-koodi",
         "en": "Enter Pin code"
-    }   ,   
+    },
     "Poistu": {
         "ru": "Выход",
         "fi": "Poistu",
         "en": "Exit"
+    },
+    "Clear": {
+        "ru": "Очистить",
+        "fi": "Tyhjennä",
+        "en": "Clear"
+    },
+    "Enter": {
+        "ru": "Войти",
+        "fi": "Kirjaudu",
+        "en": "Enter"
     }
-  }
+}
