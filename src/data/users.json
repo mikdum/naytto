@@ -1,0 +1,26 @@
+[{
+   "name":"John Smith",
+   "role":"Admin",
+   "pin":"1234"
+
+},
+{
+    "name":"Mari April",
+    "role":"Boss",
+    "pin":"1111"
+ 
+ },
+ {
+    "name":"Denis Ivanov",
+    "role":"tarjoilija",
+    "pin":"2222"
+ 
+ },
+ {
+    "name":"Denis Ivanov",
+    "role":"kokki",
+    "pin":"3333"
+ 
+ }
+
+]
