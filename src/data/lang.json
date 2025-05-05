@@ -10,24 +10,24 @@
         "fi": "Kirjaudu sisään jatkaaksesi"
     },
     "AboutCompanytitle": {
-        "ru": "О комании",
+        "ru": "О компании",
         "en": "About company",
         "fi": "Yrityksestä"
     },
     "AboutCompanyDescription": {
-        "ru": "Учебный проект ESEDU система создания заказов",
-        "en": "Educational project ESEDU order creation system",
-        "fi": "Koulutusprojekti ESEDU-tilausten luontijärjestelmä"
+        "ru": "Это пример кафе.",
+        "en": "This is a sample café.",
+        "fi": "Tämä on esimerkkikahvila."
     },
     "AboutCompanyDescription2": {
-        "ru": "Является частью обучения по программированию ",
-        "fi": "Se on osa ohjelmointikoulutusta.",
-        "en": "It is part of the programming training."
+        "ru": "Добро пожаловать!",
+        "fi": "Tervetuloa!",
+        "en": "Welcome!"
     },   
     "Copyright": {
-        "ru": "© 2025 Копирайт: Михаил Думма, Пииспанен Юхо",
-        "fi": "© 2025 Mikhail Dumma,Piispanen Juho",
-        "en": "© 2025 Copyright: Mikhail Dumma,Piispanen Juho"
+        "ru": "Авторское право",
+        "fi": "Copyright",
+        "en": "Copyright"
     },
     "ContactInfo": {
         "ru": "Контактная информация",
@@ -40,23 +40,23 @@
         "en": "Opening hours"
     },
     "Openinghours11": {
-        "ru": "Пон - Четв",
+        "ru": "Пн - Чт",
         "fi": "Ma - To",
         "en": "Mon - Thu"
     },
     "Openinghours12": {
-        "ru": "08:00 - 21:00",
+        "ru": "8-21",
         "fi": "8am - 9pm",
         "en": "8am - 9pm"
     },
     "Openinghours21": {
-        "ru": "Пятн -Субб",
+        "ru": "Пт - Сб",
         "fi": "Pe - La",
         "en": "Fri - Sat"
     },
     "Openinghours22": {
-        "ru": "08:00-23:00",
-        "fi": "8am - 11pm",
+        "ru": "8-01",
+        "fi": "8am - 1am",
         "en": "8am - 11pm"
     },
     "Openinghours31": {
@@ -65,7 +65,7 @@
         "en": "Sun"
     },
     "Openinghours32": {
-        "ru": "09:00 - 22:00",
+        "ru": "9-22",
         "fi": "9am - 10pm",
         "en": "9am - 10pm"
     },
@@ -80,9 +80,9 @@
         "en": "Enter Pin code"
     },
     "Poistu": {
-        "ru": "Выход",
+        "ru": "Выйти",
         "fi": "Poistu",
-        "en": "Exit"
+        "en": "Logout"
     },
     "Clear": {
         "ru": "Очистить",
@@ -93,5 +93,23 @@
         "ru": "Войти",
         "fi": "Kirjaudu",
         "en": "Enter"
-    }
+    },
+    "Naytto": {"fi": "Näyttö", "en": "Display", "ru": "Экран"},
+    "Etusivu": {"fi": "Etusivu", "en": "Home", "ru": "Главная"},
+    "Tilaukset": {"fi": "Tilaukset", "en": "Orders", "ru": "Заказы"},
+    "Poydat": {"fi": "Pöydät", "en": "Tables", "ru": "Столы"},
+    "Tilastot": {"fi": "Tilastot", "en": "Statistics", "ru": "Статистика"},
+    "PoydanVaraus": {"fi": "Pöydän varaus", "en": "Table reservation", "ru": "Бронирование стола"},
+    "PoydanNumero": {"fi": "Pöydän numero", "en": "Table number", "ru": "Номер стола"},
+    "VieraidenMaara": {"fi": "Vieraiden määrä", "en": "Number of guests", "ru": "Количество гостей"},
+    "Varaa": {"fi": "Varaa", "en": "Reserve", "ru": "Забронировать"},
+    "VaratutPoydat": {"fi": "Varatut pöydät", "en": "Reserved tables", "ru": "Забронированные столы"},
+    "AktiivisetTilaukset": {"fi": "Aktiiviset tilaukset", "en": "Active orders", "ru": "Активные заказы"},
+    "UusiTilaus": {"fi": "Uusi tilaus", "en": "New order", "ru": "Новый заказ"},
+    "ValitseRuoka": {"fi": "Valitse ruoka", "en": "Select food", "ru": "Выберите блюдо"},
+    "Maara": {"fi": "Määrä", "en": "Quantity", "ru": "Количество"},
+    "LahetaTilaus": {"fi": "Lähetä tilaus", "en": "Send order", "ru": "Отправить заказ"},
+    "VieraidenMaaraStat": {"fi": "Vieraiden määrä:", "en": "Number of guests:", "ru": "Количество гостей:"},
+    "AktiivisetTilauksetStat": {"fi": "Aktiiviset tilaukset:", "en": "Active orders:", "ru": "Активные заказы:"},
+    "TanaanTilatut": {"fi": "Tänään tilatut:", "en": "Ordered today:", "ru": "Заказано сегодня:"}
 }
