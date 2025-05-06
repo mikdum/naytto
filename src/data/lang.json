@@ -96,8 +96,8 @@
     }
     ,
     "controlpanel": {
-        "ru": "hallintapaneeli",
-        "fi": "Kirjaudu",
+        "ru": "Управление",
+        "fi": "hallintapaneeli",
         "en": "Control panel"
     }
     ,
