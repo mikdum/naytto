@@ -7,6 +7,15 @@
     box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
     border: 1px solid rgba(255, 255, 255, 0.18);
 }
+.rigth-card {
+    margin: 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 1rem;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+}
 #right-panel-adm{
     width: 100%;
     min-height:70vh;
@@ -18,13 +27,25 @@
     margin-top: 4rem;
 }
 
-.list-group-item{
+.list-group-item,.addUser, .description{
     background: rgba(255, 255, 255, 0.1);   
 }
 .addUser{
     margin-left: 2rem;
 
     background: rgba(255, 255, 255, 0.1);   
+}
+.description{
+    margin: 1rem;
+
+}
+.groupelement{
+    margin: 1rem;
+    margin-top: 1rem;
+    border-radius: 20px; 
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0);   
+    display: flex;
 }
 
 .main-container-adm {
@@ -35,9 +56,16 @@
 
 .main-content2{
     background-image: url('../../../images/ravintola.jpg');
+    min-width: 300px;
 }
 .table{
-    margin: 2rem;
     border-radius: 20px;   
 }
 
+
+@media (max-width: 480px) {
+
+    .menu-card{
+        display: none;
+    }
+}

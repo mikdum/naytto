@@ -22,15 +22,23 @@ for (var i = 0; i < btns.length; i++) {
     if (this.dataset.lang === "users") {
       createUserPanel();
     }
+    else if (this.dataset.lang === "menu") {
+      creatmenuPanel();
+    }
+
 
   });
 }
 
+
+
+
 function createUserPanel() {
-  const button = document.createElement('div');
-  button.classList.add("addUser");
-  button.innerHTML=htmlButtonAddUser();
-  rightPanelAdm.appendChild(button);
+  const $button = document.createElement('div');
+
+  $button.classList.add("addUser");
+  $button.innerHTML = htmlButtonAddUser();
+  rightPanelAdm.appendChild($button);
 
   var langfile = '../data/users.json';
   fetch(langfile)
@@ -50,9 +58,13 @@ function createUserTable(users) {
   let $tdName = document.createElement('td'),
     $tdRole = document.createElement('td'),
     $tdPin = document.createElement('td');
+   
+   
+    const $menuPanel = document.createElement('div');
+    $menuPanel.classList.add("rigth-card");
+    rightPanelAdm.appendChild($menuPanel);  
+    $menuPanel.appendChild($table);
 
-    var rightPanelAdm = document.getElementById('rightPanelAdm');
-    rightPanelAdm.appendChild($table);
 
   $tdName.textContent = 'Name';
   $tdRole.textContent = 'Role';
@@ -71,7 +83,7 @@ function createUserTable(users) {
   $table.append($tbody);
   users.forEach(element => {
 
-     $tdName = document.createElement('td'),
+    $tdName = document.createElement('td'),
       $tdRole = document.createElement('td'),
       $tdPin = document.createElement('td');
 
@@ -96,7 +108,7 @@ function createUserTable(users) {
 
 createUserPanel();
 
-function htmlButtonAddUser(){
+function htmlButtonAddUser() {
   return `<button type="button" class="btn btn-outline-secondary bg-dark" id="btn-addUser">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                         class="bi bi-person-plus" viewBox="0 0 16 16">
@@ -110,4 +122,101 @@ function htmlButtonAddUser(){
                     <span class="visually-hidden" data-lang="user">User</span>
                 </button>
 `
+}
+
+
+function creatmenuPanel() {
+  const button = document.createElement('div');
+  button.classList.add("addUser");
+  button.innerHTML = htmlButtonAddUser();
+  rightPanelAdm.appendChild(button);
+
+  var langfile = '../data/menu.json';
+  fetch(langfile)
+    .then(response => response.json())
+    .then(langData => {
+      createMenuTables(langData);
+
+    });
+
+}
+
+
+function createMenuTables(menu) {
+  
+  for (const [key, value] of Object.entries(menu)) {
+    const $menuPanel = document.createElement('div');
+    $menuPanel.classList.add("rigth-card");
+    rightPanelAdm.appendChild($menuPanel);
+
+    const $table = document.createElement('table'),
+      $thead = document.createElement('thead'),
+      $tbody = document.createElement('tbody');
+
+
+    const $currentItem = document.createElement('div');
+    $currentItem.classList.add("groupelement");
+    $currentItem.classList.add("bg-dark");
+
+      createDescriptionelement($currentItem, value.ru);
+      createDescriptionelement($currentItem, value.fi);
+      createDescriptionelement($currentItem, value.en);
+
+
+
+
+    $menuPanel.appendChild($currentItem);
+    $menuPanel.appendChild($table);
+
+
+    let $tr = createTrMenu("Ru", "Fi", "En", "Price");
+    $thead.append($tr);
+
+
+    $table.classList.add("table");
+    $table.classList.add("table-dark");
+    $table.append($thead);
+    $table.append($tbody);
+
+
+    value.items.forEach(element => {
+      let $tr = createTrMenu(element.ru, element.fi, element.en, element.price);
+      $tbody.append($tr);
+
+    });
+
+
+
+
+  };
+
+}
+function createDescriptionelement($parent,currentdescription){
+  $element = document.createElement('div');
+  $element.classList.add("description");
+  $element.textContent = currentdescription; 
+  $parent.appendChild($element);
+}
+
+function createTrMenu(Ru, Fi, En, Price) {
+
+  let $tr = document.createElement('tr');
+
+  let $tdRu = document.createElement('td'),
+    $tdFi = document.createElement('td'),
+    $tdEn = document.createElement('td');
+  $tdPrice = document.createElement('td');
+
+  $tdRu.textContent = Ru;
+  $tdFi.textContent = Fi;
+  $tdEn.textContent = En;
+  $tdPrice.textContent = Price;
+
+  $tr.append($tdRu);
+  $tr.append($tdFi);
+  $tr.append($tdEn);
+  $tr.append($tdPrice);
+  return $tr;
+
+
 }
