@@ -8,109 +8,86 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-    <link rel="stylesheet" href="../assets/css/style.css">
 
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/adminstrators.css">
 </head>
 
 <body>
-    <div class="wrapper">
+    <div class="main-container-adm">
+        <header class="header">
+            <div class="d-flex justify-content-between header">
+                <div class="container">
+                    <button type="button" class="btn btn-lang btn_active" data-btn="fi">Fi</button>
+                    <button type="button" class="btn btn-lang" data-btn="ru">Ru</button>
+                    <button type="button" class="btn btn-lang" data-btn="en">En</button>
+                </div>
+                <button type="button" class="btn btn-info" data-lang="Poistu"
+                    onclick="location.href='index.html'">Poistu</button>
+        </header>
 
-        <div class="d-flex justify-content-between header">
+        <main class="main-content2">
 
-            <div class="container">
-                <button type="button" class="btn btn-lang btn_active" data-btn="fi">Fi</button>
-                <button type="button" class="btn btn-lang" data-btn="ru">Ru</button>
-                <button type="button" class="btn btn-lang" data-btn="en">En</button>
+            <div class="menu-card" id="myDIV" style="width: 18rem;">
+                <h5 class="card-title" data-lang="controlpanel">Control panel</h5>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item active" data-lang="users">users</li>
+                    <li class="list-group-item" data-lang="menu">menu</li>
+                    <li class="list-group-item" data-lang="tables">tables</li>
+                </ul>
             </div>
-                <button type="button" class="btn btn-info" data-lang="Poistu" onclick="location.href='index.html'">Poistu</button>
-           
-        </div>
-        <div class="main">
 
-      
-        
+
+            <div id="rightPanelAdm">
+            </div>
+        </main>
+
+
     </div>
 
-    <footer class="text-white text-center text-lg-start" style="background-color: #23242a;">
-        <!-- Grid container -->
-        <div class="container p-4">
-            <!--Grid row-->
-            <div class="row mt-4">
-                <!--Grid column-->
-                <div class="col-lg-4 col-md-12 mb-4 mb-md-0">
-                    <h5 class="text-uppercase mb-4" data-lang="AboutCompanytitle"></h5>
 
+
+
+    < <footer>
+        <div class="container footer-content">
+            <div class="row">
+                <div class="col-lg-4 footer-section">
+                    <h5 data-lang="AboutCompanytitle">About company</h5>
                     <p data-lang="AboutCompanyDescription">
+                        Educational project ESEDU order creation system
                     </p>
+                </div>
 
-                    <p data-lang="AboutCompanyDescription2">
-                    </p>
-
-                    </div>
-                <!--Grid column-->
-
-                <!--Grid column-->
-                <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
-
-                    <ul class="fa-ul" style="margin-left: 1.65em;">
-                        <li class="mb-3">
-                            <span class="fa-li"><i class="fas fa-home"></i></span><span class="ms-2" data-lang="Kaupunki">Finland
-                                Mikkeli, 50600</span>
-                        </li>
-                        <li class="mb-3">
-                            <span class="fa-li"><i class="fas fa-envelope"></i></span><span
-                                class="ms-2">info@example.com</span>
-                        </li>
-                        <li class="mb-3">
-                            <span class="fa-li"><i class="fas fa-phone"></i></span><span class="ms-2">+ 01 234
-                                567
-                                88</span>
-                        </li>
-                        <li class="mb-3">
-                            <span class="fa-li"><i class="fas fa-print"></i></span><span class="ms-2">+ 01 234
-                                567
-                                89</span>
-                        </li>
+                <div class="col-lg-4 footer-section">
+                    <h5 data-lang="ContactInfo">Contact information</h5>
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-map-marker-alt mr-2"></i> <span data-lang="Kaupunki">Finland, Mikkeli,
+                                50600</span></li>
+                        <li><i class="fas fa-envelope mr-2"></i> info@example.com</li>
+                        <li><i class="fas fa-phone mr-2"></i> +358 123 456 789</li>
                     </ul>
                 </div>
-                <!--Grid column-->
 
-                <!--Grid column-->
-                <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
-                    <h5 class="text-uppercase mb-4" data-lang="Openinghours">Opening hours</h5>
-
-                    <table class="table text-center text-white">
-                        <tbody class="font-weight-normal">
-                            <tr>
-                                <td data-lang="Openinghours11">Mon - Thu:</td>
-                                <td data-lang="Openinghours12">8am - 9pm</td>
-                            </tr>
-                            <tr>
-                                <td data-lang="Openinghours21">Fri - Sat:</td>
-                                <td data-lang="Openinghours22">8am - 1am</td>
-                            </tr>
-                            <tr>
-                                <td data-lang="Openinghours31">Sunday:</td>
-                                <td data-lang="Openinghours32">9am - 10pm</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                <div class="col-lg-4 footer-section">
+                    <h5 data-lang="Openinghours">Opening hours</h5>
+                    <ul class="list-unstyled">
+                        <li><span data-lang="Openinghours11">Mon - Thu</span>: <span data-lang="Openinghours12">8am -
+                                9pm</span></li>
+                        <li><span data-lang="Openinghours21">Fri - Sat</span>: <span data-lang="Openinghours22">8am -
+                                11pm</span></li>
+                        <li><span data-lang="Openinghours31">Sun</span>: <span data-lang="Openinghours32">9am -
+                                10pm</span></li>
+                    </ul>
                 </div>
-                <!--Grid column-->
             </div>
-            <!--Grid row-->
         </div>
-        <!-- Grid container -->
-
-        <!-- Copyright -->
-        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);"  data-lang="Copyright">
-            Copyright
+        <div class="copyright" data-lang="Copyright">
+            © 2024 Näyttö. All rights reserved.
         </div>
-        <!-- Copyright -->
-    </footer>
+        </footer>
 
-    </div>
-    <script src="../assets/js/common.js"></script>
+        <script src="../assets/js/common.js"></script>
+        <script src="../assets/js/adminstrators.js"></script>
 </body>
 
 </html>

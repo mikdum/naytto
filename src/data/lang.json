@@ -94,4 +94,33 @@
         "fi": "Kirjaudu",
         "en": "Enter"
     }
+    ,
+    "controlpanel": {
+        "ru": "hallintapaneeli",
+        "fi": "Kirjaudu",
+        "en": "Control panel"
+    }
+    ,
+    "users": {
+        "ru": "Пользователи",
+        "fi": "Käytäjät",
+        "en": "Users"
+    }
+        ,
+    "user": {
+        "ru": "Пользователь",
+        "fi": "Käyttäjä",
+        "en": "User"
+    },
+    "menu": {
+        "ru": "Меню",
+        "fi": "Valikko",
+        "en": "Menu"
+    } ,
+    "tables": {
+        "ru": "Столики",
+        "fi": "Pöydät",
+        "en": "Tables"
+    }
+
 }
