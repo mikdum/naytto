@@ -529,4 +529,195 @@ footer {
     color: #fff !important;
     border-color: #444 !important;
     box-shadow: none !important;
+}
+
+.pin-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 30px;
+    padding: 20px;
+    background: none !important;
+}
+
+.pin-digit {
+    width: 30px !important;
+    height: 30px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 32px !important;
+    color: #555 !important;
+    transition: color 0.2s ease !important;
+    line-height: 1 !important;
+}
+
+.pin-digit.active {
+    color: #17a2b8 !important;
+}
+
+.keypad {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    max-width: 300px;
+    margin: 0 auto;
+    padding: 20px;
+    background: none !important;
+}
+
+.btn-num, .btn-clear, .btn-enter {
+    padding: 15px;
+    font-size: 1.2em;
+    border-radius: 5px;
+    background-color: #3d3d3d !important;
+    border: 2px solid #555 !important;
+    color: #fff !important;
+    transition: all 0.2s ease;
+}
+
+.btn-num:hover, .btn-clear:hover, .btn-enter:hover {
+    background-color: #4d4d4d !important;
+    transform: translateY(-2px);
+}
+
+.btn-num:active, .btn-clear:active, .btn-enter:active {
+    transform: translateY(0);
+}
+
+.modal-content.dark-card {
+    background-color: #232323 !important;
+    color: #fff !important;
+    border: 1px solid #444 !important;
+    border-radius: 16px !important;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.5);
+    padding: 0 !important;
+}
+
+.modal-header, .modal-body {
+    background-color: #232323 !important;
+    color: #fff !important;
+    border-bottom: 1px solid #444 !important;
+    border-radius: 16px 16px 0 0 !important;
+    padding: 24px 32px 16px 32px !important;
+}
+
+.modal-body {
+    border-radius: 0 0 16px 16px !important;
+    padding: 24px 32px 32px 32px !important;
+}
+
+.form-control, .form-control:focus {
+    background-color: #181818 !important;
+    color: #fff !important;
+    border: 1px solid #666 !important;
+    box-shadow: none !important;
+    border-radius: 8px !important;
+    margin-bottom: 18px;
+}
+
+#orderModal label {
+    color: #fff !important;
+    font-weight: 500;
+    margin-bottom: 8px;
+}
+
+#orderModal .btn-success {
+    background: #17a2b8 !important;
+    border: none !important;
+    border-radius: 8px !important;
+    font-size: 1.1rem;
+    padding: 10px 24px;
+    margin-top: 8px;
+}
+
+.table-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    margin: 32px 0;
+    min-height: 60vh;
+    align-items: stretch;
+    justify-items: stretch;
+}
+
+.table-btn {
+    min-height: 80px;
+    min-width: 80px;
+    max-width: 160px;
+    max-height: 120px;
+    width: 100%;
+    height: 100%;
+    border-radius: 18px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.table-btn.vip {
+    background: #ede7f6;
+    border-color: #8e24aa;
+    color: #4a148c;
+}
+
+.table-btn.has-order {
+    background: #c8e6c9 !important;
+    border-color: #388e3c !important;
+    color: #1b5e20 !important;
+}
+
+.table-btn:disabled {
+    background: #eee;
+    color: #bbb;
+    border-color: #ccc;
+    cursor: not-allowed;
+}
+
+.table-btn.reserved {
+    background: #666666 !important;
+    border-color: #444444 !important;
+    color: #ffffff !important;
+    cursor: not-allowed !important;
+    opacity: 0.8;
+}
+
+.main .container {
+    max-width: 100vw;
+    width: 100vw;
+    padding: 0;
+    margin: 0;
+}
+
+.table-container {
+    position: relative;
+    display: inline-block;
+    margin: 5px;
+}
+
+.reserve-btn {
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    padding: 2px 8px;
+    font-size: 12px;
+    z-index: 1;
+    background-color: #17a2b8 !important;
+    border: none !important;
+}
+
+.reserve-btn:hover {
+    background-color: #138496 !important;
+}
+
+.release-btn {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    padding: 2px 8px;
+    font-size: 12px;
+    z-index: 1;
 } 

@@ -1,0 +1,137 @@
+[
+    {
+        "id": 1,
+        "name": {
+            "fi": "Pöytä 1",
+            "en": "Table 1",
+            "ru": "Стол 1"
+        },
+        "type": "normal"
+    },
+    {
+        "id": 2,
+        "name": {
+            "fi": "Pöytä 2",
+            "en": "Table 2",
+            "ru": "Стол 2"
+        },
+        "type": "normal"
+    },
+    {
+        "id": 3,
+        "name": {
+            "fi": "Pöytä 3",
+            "en": "Table 3",
+            "ru": "Стол 3"
+        },
+        "type": "normal"
+    },
+    {
+        "id": 4,
+        "name": {
+            "fi": "Pöytä 4",
+            "en": "Table 4",
+            "ru": "Стол 4"
+        },
+        "type": "normal"
+    },
+    {
+        "id": 5,
+        "name": {
+            "fi": "Pöytä 5",
+            "en": "Table 5",
+            "ru": "Стол 5"
+        },
+        "type": "normal"
+    },
+    {
+        "id": 6,
+        "name": {
+            "fi": "Pöytä 6",
+            "en": "Table 6",
+            "ru": "Стол 6"
+        },
+        "type": "normal"
+    },
+    {
+        "id": 7,
+        "name": {
+            "fi": "Pöytä 7",
+            "en": "Table 7",
+            "ru": "Стол 7"
+        },
+        "type": "normal"
+    },
+    {
+        "id": 8,
+        "name": {
+            "fi": "Pöytä 8",
+            "en": "Table 8",
+            "ru": "Стол 8"
+        },
+        "type": "normal"
+    },
+    {
+        "id": 9,
+        "name": {
+            "fi": "Pöytä 9",
+            "en": "Table 9",
+            "ru": "Стол 9"
+        },
+        "type": "normal"
+    },
+    {
+        "id": 10,
+        "name": {
+            "fi": "Pöytä 10",
+            "en": "Table 10",
+            "ru": "Стол 10"
+        },
+        "type": "normal"
+    },
+    {
+        "id": 11,
+        "name": {
+            "fi": "Pöytä 11",
+            "en": "Table 11",
+            "ru": "Стол 11"
+        },
+        "type": "normal"
+    },
+    {
+        "id": 12,
+        "name": {
+            "fi": "Pöytä 12",
+            "en": "Table 12",
+            "ru": "Стол 12"
+        },
+        "type": "normal"
+    },
+    {
+        "id": 13,
+        "name": {
+            "fi": "VIP 1",
+            "en": "VIP 1",
+            "ru": "VIP 1"
+        },
+        "type": "vip"
+    },
+    {
+        "id": 14,
+        "name": {
+            "fi": "VIP 2",
+            "en": "VIP 2",
+            "ru": "VIP 2"
+        },
+        "type": "vip"
+    },
+    {
+        "id": 15,
+        "name": {
+            "fi": "VIP 3",
+            "en": "VIP 3",
+            "ru": "VIP 3"
+        },
+        "type": "vip"
+    }
+] 

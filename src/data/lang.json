@@ -191,7 +191,7 @@
     },
     "users": {
         "ru": "Пользователи",
-        "fi": "Käytäjät",
+        "fi": "Käyttäjät",
         "en": "Users"
     },
     "user": {
@@ -208,5 +208,10 @@
         "ru": "Столики",
         "fi": "Pöydät",
         "en": "Tables"
+    },
+    "Vapauta": {
+        "fi": "Vapauta",
+        "en": "Release",
+        "ru": "Освободить"
     }
 }

@@ -7,6 +7,10 @@
         { "id": "5", "fi": "Sämpylä", "en": "Sandwich", "ru": "Бутерброд" },
         { "id": "6", "fi": "Croissant", "en": "Croissant", "ru": "Круассан" },
         { "id": "7", "fi": "Donitsi", "en": "Donut", "ru": "Пончик" },
-        { "id": "8", "fi": "Mehu", "en": "Juice", "ru": "Сок" }
+        { "id": "8", "fi": "Mehu", "en": "Juice", "ru": "Сок" },
+        { "id": "9", "name": "Pizza Margherita" },
+        { "id": "10", "name": "Kana Caesar" },
+        { "id": "11", "name": "Burgeri" },
+        { "id": "12", "name": "Ranskalaiset" }
     ]
-}
+} 
