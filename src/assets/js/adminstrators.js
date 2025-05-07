@@ -7,15 +7,17 @@ var rightPanelAdm = document.getElementById("rightPanelAdm");
 // Get all buttons with class="btn" inside the container
 var btns = btnContainer.getElementsByClassName("list-group-item");
 
+
+var users = [];
+var menu = {};
+
 // Loop through the buttons and add the active class to the current/clicked button
 for (var i = 0; i < btns.length; i++) {
   btns[i].addEventListener("click", function () {
     var current = document.getElementsByClassName("active");
     current[0].className = current[0].className.replace(" active", "");
-    console.log(this.dataset.lang);
     this.className += " active";
     while (rightPanelAdm.firstChild) {
-      console.log(rightPanelAdm.firstChild);
       rightPanelAdm.removeChild(rightPanelAdm.firstChild);
     }
 
@@ -23,7 +25,7 @@ for (var i = 0; i < btns.length; i++) {
       createUserPanel();
     }
     else if (this.dataset.lang === "menu") {
-      creatmenuPanel();
+      createmenuPanel();
     }
 
 
@@ -39,31 +41,42 @@ function createUserPanel() {
   $button.classList.add("addUser");
   $button.innerHTML = htmlButtonAddUser();
   rightPanelAdm.appendChild($button);
+  nayttoUsers = localStorage.getItem("nayttoUsers");
+  if (nayttoUsers != null) {
+    users = JSON.parse(nayttoUsers);
+    createUserTable();
 
-  var langfile = '../data/users.json';
-  fetch(langfile)
-    .then(response => response.json())
-    .then(langData => {
-      createUserTable(langData);
+  }
+  else {
 
-    });
+    var langfile = '../data/users.json';
+    fetch(langfile)
+      .then(response => response.json())
+      .then(langData => {
+        users = langData;
+        createUserTable();
+        });
+  }
+
 
 }
 
-function createUserTable(users) {
+function createUserTable() {
+
   const $table = document.createElement('table'),
     $thead = document.createElement('thead'),
     $tbody = document.createElement('tbody');
+  $table.id = "usersTable";
   let $tr = document.createElement('tr');
   let $tdName = document.createElement('td'),
     $tdRole = document.createElement('td'),
     $tdPin = document.createElement('td');
-   
-   
-    const $menuPanel = document.createElement('div');
-    $menuPanel.classList.add("rigth-card");
-    rightPanelAdm.appendChild($menuPanel);  
-    $menuPanel.appendChild($table);
+
+
+  const $menuPanel = document.createElement('div');
+  $menuPanel.classList.add("rigth-card");
+  rightPanelAdm.appendChild($menuPanel);
+  $menuPanel.appendChild($table);
 
 
   $tdName.textContent = 'Name';
@@ -86,6 +99,7 @@ function createUserTable(users) {
     $tdName = document.createElement('td'),
       $tdRole = document.createElement('td'),
       $tdPin = document.createElement('td');
+    $tdDelete = document.createElement('td');
 
     $tr = document.createElement('tr');
 
@@ -93,9 +107,11 @@ function createUserTable(users) {
     $tdRole.textContent = element.role;
     $tdPin.textContent = element.pin;
 
+    $tdDelete.innerHTML = `<a class='btn btn-light' href='#' onclick=deleteRow(this.parentNode.parentNode,"usersTable") ><img src='/images/crest.png' style="width: 20px; height: 20px;"></a>`;
     $tr.append($tdName);
     $tr.append($tdRole);
     $tr.append($tdPin);
+    $tr.append($tdDelete);
 
 
 
@@ -125,25 +141,33 @@ function htmlButtonAddUser() {
 }
 
 
-function creatmenuPanel() {
+function createmenuPanel() {
   const button = document.createElement('div');
   button.classList.add("addUser");
   button.innerHTML = htmlButtonAddUser();
   rightPanelAdm.appendChild(button);
 
-  var langfile = '../data/menu.json';
-  fetch(langfile)
-    .then(response => response.json())
-    .then(langData => {
-      createMenuTables(langData);
 
-    });
+  nayttoMenu = localStorage.getItem("nayttoMenu");
+  if (nayttoMenu != null) {
+    menu = JSON.parse(nayttoMenu);
+    createMenuTables();
 
+  }
+  else {
+    var langfile = '../data/menu.json';
+    fetch(langfile)
+      .then(response => response.json())
+      .then(langData => {
+        menu = langData;
+        createMenuTables();
+      });
+
+  }
 }
 
+function createMenuTables() {
 
-function createMenuTables(menu) {
-  
   for (const [key, value] of Object.entries(menu)) {
     const $menuPanel = document.createElement('div');
     $menuPanel.classList.add("rigth-card");
@@ -153,14 +177,14 @@ function createMenuTables(menu) {
       $thead = document.createElement('thead'),
       $tbody = document.createElement('tbody');
 
-
+    $table.id = `menuTable${key}`;
     const $currentItem = document.createElement('div');
     $currentItem.classList.add("groupelement");
     $currentItem.classList.add("bg-dark");
 
-      createDescriptionelement($currentItem, value.ru);
-      createDescriptionelement($currentItem, value.fi);
-      createDescriptionelement($currentItem, value.en);
+    createDescriptionelement($currentItem, value.ru);
+    createDescriptionelement($currentItem, value.fi);
+    createDescriptionelement($currentItem, value.en);
 
 
 
@@ -170,6 +194,9 @@ function createMenuTables(menu) {
 
 
     let $tr = createTrMenu("Ru", "Fi", "En", "Price");
+
+
+
     $thead.append($tr);
 
 
@@ -181,6 +208,10 @@ function createMenuTables(menu) {
 
     value.items.forEach(element => {
       let $tr = createTrMenu(element.ru, element.fi, element.en, element.price);
+      $tdDelete = document.createElement('td');
+      $tdDelete.innerHTML = `<a class='btn btn-light' href='#' onclick=deleteRow(this.parentNode.parentNode,"menuTable${key}") ><img src='/images/crest.png' style="width: 20px; height: 20px;"></a>`;
+      $tr.append($tdDelete);
+
       $tbody.append($tr);
 
     });
@@ -191,10 +222,29 @@ function createMenuTables(menu) {
   };
 
 }
-function createDescriptionelement($parent,currentdescription){
+
+function deleteRow(row, idtable) {
+  var table = document.getElementById(idtable);
+  if (idtable === "usersTable") {
+
+    users = users.filter((e, i) => e.name != row.cells[0].textContent);
+    localStorage.setItem("nayttoUsers", JSON.stringify(users));
+  }
+  else {
+
+
+    var currentItems = menu[idtable.replace("menuTable", "")];
+    currentItems.items = currentItems.items.filter((e, i) => e.en != row.cells[2].textContent);
+    localStorage.setItem("nayttoMenu", JSON.stringify(menu));
+  }
+
+  table.deleteRow(row.rowIndex);
+
+}
+function createDescriptionelement($parent, currentdescription) {
   $element = document.createElement('div');
   $element.classList.add("description");
-  $element.textContent = currentdescription; 
+  $element.textContent = currentdescription;
   $parent.appendChild($element);
 }
 
@@ -217,6 +267,24 @@ function createTrMenu(Ru, Fi, En, Price) {
   $tr.append($tdEn);
   $tr.append($tdPrice);
   return $tr;
+
+
+}
+
+function clearCache(){
+  localStorage.removeItem("nayttoUsers");
+  localStorage.removeItem("nayttoMenu");
+  var current = document.getElementsByClassName("active");
+  while (rightPanelAdm.firstChild) {
+    rightPanelAdm.removeChild(rightPanelAdm.firstChild);
+  }
+ 
+  if (current[0].dataset.lang === "users") {
+    createUserPanel();
+  }
+  else if (current[0].dataset.lang === "menu") {
+    createmenuPanel();
+  }
 
 
 }
