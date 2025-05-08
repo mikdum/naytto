@@ -36,11 +36,9 @@ for (var i = 0; i < btns.length; i++) {
 
 
 function createUserPanel() {
-  const $button = document.createElement('div');
 
-  $button.classList.add("addUser");
-  $button.innerHTML = htmlButtonAddUser();
-  rightPanelAdm.appendChild($button);
+  addButton("user");
+
   nayttoUsers = localStorage.getItem("nayttoUsers");
   if (nayttoUsers != null) {
     users = JSON.parse(nayttoUsers);
@@ -55,7 +53,7 @@ function createUserPanel() {
       .then(langData => {
         users = langData;
         createUserTable();
-        });
+      });
   }
 
 
@@ -125,7 +123,7 @@ function createUserTable() {
 createUserPanel();
 
 function htmlButtonAddUser() {
-  return `<button type="button" class="btn btn-outline-secondary bg-dark" id="btn-addUser">
+  return `<button type="button" class="btn btn-outline-secondary bg-dark" id="btn-addModalWindow" data-bs-toggle="modal" data-bs-target="#addModalWindow">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                         class="bi bi-person-plus" viewBox="0 0 16 16">
                         <path
@@ -135,19 +133,15 @@ function htmlButtonAddUser() {
                             d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5">
                         </path>
                     </svg>
-                    <span class="visually-hidden" data-lang="user">User</span>
+                    <span class="visually-hidden"  id="buttonTitle" data-lang="user">User</span>
                 </button>
 `
 }
 
 
 function createmenuPanel() {
-  const button = document.createElement('div');
-  button.classList.add("addUser");
-  button.innerHTML = htmlButtonAddUser();
-  rightPanelAdm.appendChild(button);
 
-
+  addButton("menu");
   nayttoMenu = localStorage.getItem("nayttoMenu");
   if (nayttoMenu != null) {
     menu = JSON.parse(nayttoMenu);
@@ -271,14 +265,14 @@ function createTrMenu(Ru, Fi, En, Price) {
 
 }
 
-function clearCache(){
+function clearCache() {
   localStorage.removeItem("nayttoUsers");
   localStorage.removeItem("nayttoMenu");
   var current = document.getElementsByClassName("active");
   while (rightPanelAdm.firstChild) {
     rightPanelAdm.removeChild(rightPanelAdm.firstChild);
   }
- 
+
   if (current[0].dataset.lang === "users") {
     createUserPanel();
   }
@@ -286,5 +280,30 @@ function clearCache(){
     createmenuPanel();
   }
 
+
+}
+
+function createModalPanel(typeOfPanel) {
+
+  console.log(typeOfPanel);
+}
+
+function addButton(buttonName) {
+  const $button = document.createElement('div');
+
+  $button.classList.add("addUser");
+  $button.innerHTML = htmlButtonAddUser();
+
+  rightPanelAdm.appendChild($button);
+  var btnaddModalWindow = document.getElementById("btn-addModalWindow");
+  btnaddModalWindow.onclick = function () { createModalPanel(buttonName) };
+  
+  var buttonTitle = document.getElementById("buttonTitle");
+  buttonTitle.setAttribute("data-lang",buttonName);  
+  document.querySelector('.btn-lang.btn_active').click();
+}
+
+
+function closemodalDiscard() {
 
 }
