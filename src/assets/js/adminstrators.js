@@ -284,8 +284,70 @@ function clearCache() {
 }
 
 function createModalPanel(typeOfPanel) {
+  $titleLabel=document.getElementById("addModalWindowLabel");
+  $titleLabel.setAttribute("data-lang", "addingUsers");
+  $bodyofform = document.querySelector(".modal-body");
+  while ($bodyofform.firstChild) {
+    $bodyofform.removeChild($bodyofform.firstChild);
+  }
 
-  console.log(typeOfPanel);
+  addElementwithLabel($bodyofform, "AddUserName", "user", "20");
+  var field =addElementwithLabel($bodyofform, "AddPincode", "pincode", "1");
+  field.setAttribute("maxlength", 4);
+  const $parent = document.createElement('div');
+  $parent.classList.add("form-check");
+  $bodyofform.appendChild($parent);
+
+  field=addRadioElementwithLabel($parent, "bossRole", "boss");
+  field.setAttribute("Checked", true);
+  addRadioElementwithLabel($parent, "adminRole", "administrator");
+  addRadioElementwithLabel($parent, "kokkinRole", "kokki");
+  addRadioElementwithLabel($parent, "tarjoilijaRole", "tarjoilija");
+  
+  document.querySelector('.btn-lang.btn_active').click();
+}
+
+function createElement(tagofElement,elementId,datalang){
+ const $element = document.createElement(tagofElement);
+  $element.id = elementId;
+  $element.setAttribute("data-lang", datalang);
+return $element;
+}
+
+function addRadioElementwithLabel($groupofElements,elementId, datalang) {
+  const $parent = document.createElement('div');
+  $groupofElements.appendChild($parent);
+
+  const $input=createElement('input',elementId,datalang);
+  $input.setAttribute("type", "radio");
+  $input.name="usersRoles";
+
+  const $label=createElement('label',elementId,datalang);
+
+ $label.forHTML = elementId;
+ $label.setAttribute("class", "col-sm-2 col-form-label");
+
+  $parent.appendChild($input);
+  $parent.appendChild($label);
+  return $input;
+}
+
+function addElementwithLabel($groupofElements, elementId, datalang, size) {
+  const $parent = document.createElement('div');
+  $groupofElements.appendChild($parent);
+
+  const $input=createElement('input',elementId,datalang);
+  $input.setAttribute("size", size);
+
+
+  const $label=createElement('label',elementId,datalang);
+
+ $label.forHTML = elementId;
+ $label.setAttribute("class", "mx-2 col-sm-3 col-form-label");
+
+  $parent.appendChild($label);
+  $parent.appendChild($input);
+  return $input;
 }
 
 function addButton(buttonName) {
@@ -297,9 +359,9 @@ function addButton(buttonName) {
   rightPanelAdm.appendChild($button);
   var btnaddModalWindow = document.getElementById("btn-addModalWindow");
   btnaddModalWindow.onclick = function () { createModalPanel(buttonName) };
-  
+
   var buttonTitle = document.getElementById("buttonTitle");
-  buttonTitle.setAttribute("data-lang",buttonName);  
+  buttonTitle.setAttribute("data-lang", buttonName);
   document.querySelector('.btn-lang.btn_active').click();
 }
 

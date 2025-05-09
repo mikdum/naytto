@@ -25,9 +25,9 @@
         "en": "It is part of the programming training."
     },   
     "Copyright": {
-        "ru": "© 2025 Копирайт: Михаил Думма, Пииспанен Юхо",
-        "fi": "© 2025 Mikhail Dumma,Piispanen Juho",
-        "en": "© 2025 Copyright: Mikhail Dumma,Piispanen Juho"
+        "ru": "© 2025 Копирайт: Думма Михаил, Пииспанен Юхо",
+        "fi": "© 2025 Dumma Mikhail, Piispanen Juho",
+        "en": "© 2025 Copyright: Dumma Mikhail, Piispanen Juho"
     },
     "ContactInfo": {
         "ru": "Контактная информация",
@@ -121,6 +121,40 @@
         "ru": "Столики",
         "fi": "Pöydät",
         "en": "Tables"
+    },
+    "pincode": {
+        "ru": "Пинкод",
+        "fi": "Pin-code",
+        "en": "Pin-code"
+    },
+    "boss": {
+        "ru": "Руководитель",
+        "fi": "Ohjaja",
+        "en": "Boss"
+    }
+    ,
+    "administrator": {
+        "ru": "Администратор",
+        "fi": "Ylläpitäjä",
+        "en": "Administrator"
+    }
+    ,
+    "kokki": {
+        "ru": "Повар",
+        "fi": "Kokki",
+        "en": "Pin-code"
+    }
+    ,
+    "tarjoilija": {
+        "ru": "Официант",
+        "fi": "Tarjoilija",
+        "en": "Pin-code"
+    }
+    ,
+    "addingUsers": {
+        "ru": "Добавление пользователей",
+        "fi": "Käyttäjien lisääminen",
+        "en": "Adding users"
     }
 
 }
