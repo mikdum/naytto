@@ -142,13 +142,13 @@
     "kokki": {
         "ru": "Повар",
         "fi": "Kokki",
-        "en": "Pin-code"
+        "en": "Cooker"
     }
     ,
     "tarjoilija": {
         "ru": "Официант",
         "fi": "Tarjoilija",
-        "en": "Pin-code"
+        "en": "Waiter"
     }
     ,
     "addingUsers": {
