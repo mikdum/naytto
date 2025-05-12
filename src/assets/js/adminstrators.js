@@ -27,9 +27,7 @@ for (var i = 0; i < btns.length; i++) {
     else if (this.dataset.lang === "menu") {
       createmenuPanel();
     }
-
-
-  });
+   });
 }
 
 
@@ -55,7 +53,7 @@ function createUserPanel() {
         createUserTable();
       });
   }
-
+  document.getElementById("savechanges").onclick=function () { saveUsers() };
 
 }
 
@@ -80,6 +78,9 @@ function createUserTable() {
   $tdName.textContent = 'Name';
   $tdRole.textContent = 'Role';
   $tdPin.textContent = 'Pin';
+  $tdName.setAttribute("data-lang","name");
+  $tdRole.setAttribute("data-lang","role");
+  $tdPin.setAttribute("data-lang","pincode");
 
   $tr.append($tdName);
   $tr.append($tdRole);
@@ -103,6 +104,7 @@ function createUserTable() {
 
     $tdName.textContent = element.name;
     $tdRole.textContent = element.role;
+    $tdRole.setAttribute("data-lang",element.role);
     $tdPin.textContent = element.pin;
 
     $tdDelete.innerHTML = `<a class='btn btn-light' href='#' onclick=deleteRow(this.parentNode.parentNode,"usersTable") ><img src='/images/crest.png' style="width: 20px; height: 20px;"></a>`;
@@ -117,6 +119,7 @@ function createUserTable() {
 
 
   });
+  document.querySelector('.btn-lang.btn_active').click();
 
 }
 
@@ -189,6 +192,8 @@ function createMenuTables() {
 
     let $tr = createTrMenu("Ru", "Fi", "En", "Price");
 
+    $tr.cells[3].setAttribute("data-lang", "price");
+
 
 
     $thead.append($tr);
@@ -256,6 +261,13 @@ function createTrMenu(Ru, Fi, En, Price) {
   $tdEn.textContent = En;
   $tdPrice.textContent = Price;
 
+  
+
+
+
+  
+
+
   $tr.append($tdRu);
   $tr.append($tdFi);
   $tr.append($tdEn);
@@ -294,6 +306,9 @@ function createModalPanel(typeOfPanel) {
   addElementwithLabel($bodyofform, "AddUserName", "user", "20");
   var field =addElementwithLabel($bodyofform, "AddPincode", "pincode", "1");
   field.setAttribute("maxlength", 4);
+
+
+
   const $parent = document.createElement('div');
   $parent.classList.add("form-check");
   $bodyofform.appendChild($parent);
@@ -321,6 +336,7 @@ function addRadioElementwithLabel($groupofElements,elementId, datalang) {
   const $input=createElement('input',elementId,datalang);
   $input.setAttribute("type", "radio");
   $input.name="usersRoles";
+  $input.value=datalang;
 
   const $label=createElement('label',elementId,datalang);
 
@@ -340,7 +356,7 @@ function addElementwithLabel($groupofElements, elementId, datalang, size) {
   $input.setAttribute("size", size);
 
 
-  const $label=createElement('label',elementId,datalang);
+  const $label=createElement('label',"",datalang);
 
  $label.forHTML = elementId;
  $label.setAttribute("class", "mx-2 col-sm-3 col-form-label");
@@ -367,5 +383,21 @@ function addButton(buttonName) {
 
 
 function closemodalDiscard() {
+
+}
+
+function saveUsers(){
+  const name=document.getElementById("AddUserName").value;
+  const pin=document.getElementById("AddPincode").value;
+  const role=document.querySelector('input[name="usersRoles"]:checked').value;
+  const user={"name":name,"pin":pin,"role":role};
+  users.push(user);
+  localStorage.setItem("nayttoUsers", JSON.stringify(users)); 
+
+  while (rightPanelAdm.firstChild) {
+    rightPanelAdm.removeChild(rightPanelAdm.firstChild);
+  }
+  createUserPanel();
+
 
 }

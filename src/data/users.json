@@ -1,12 +1,12 @@
 [{
    "name":"John Smith",
-   "role":"Admin",
+   "role":"administrator",
    "pin":"1234"
 
 },
 {
     "name":"Mari April",
-    "role":"Boss",
+    "role":"boss",
     "pin":"1111"
  
  },

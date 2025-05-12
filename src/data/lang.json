@@ -155,6 +155,36 @@
         "ru": "Добавление пользователей",
         "fi": "Käyttäjien lisääminen",
         "en": "Adding users"
+    },
+    "close": {
+        "ru": "Закрыть",
+        "fi": "Sulkea",
+        "en": "Close"
     }
+,
+    "savechanges": {
+        "ru": "Сохранить",
+        "fi": "Tallenna muutokset",
+        "en": "Save changes"
+    }
+,
+    "price": {
+        "ru": "Цена",
+        "fi": "Hinta",
+        "en": "Price"
+    },
 
+
+    "name": {
+        "ru": "Имя",
+        "fi": "Nimi",
+        "en": "Name"
+    },
+    
+
+    "role": {
+        "ru": "Роль",
+        "fi": "rooli",
+        "en": "role"
+    }
 }
