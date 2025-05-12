@@ -7,6 +7,8 @@ document.addEventListener('DOMContentLoaded', () => {
     setupLanguageButtons();
     translatePage();
     loadTables();
+    setupModals();
+    setupEventListeners();
 });
 
 function initializeData() {
@@ -21,21 +23,126 @@ function initializeData() {
     }
 }
 
+function setupModals() {
+    const orderModalTemplate = document.getElementById('orderModalTemplate');
+    const reservationModalTemplate = document.getElementById('reservationModalTemplate');
+    
+    document.body.appendChild(orderModalTemplate.content.cloneNode(true));
+    document.body.appendChild(reservationModalTemplate.content.cloneNode(true));
+}
+
 function setupEventListeners() {
     const tableReservationForm = document.getElementById('tableReservationForm');
     if (tableReservationForm) {
-        tableReservationForm.addEventListener('submit', handleTableReservation);
+        tableReservationForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const tableId = document.getElementById('tableNumber').value;
+            const guestCount = document.getElementById('guestCount').value;
+            
+            const reservations = JSON.parse(localStorage.getItem('tableReservations')) || [];
+            const existingReservation = reservations.find(r => r.tableNumber === tableId.toString());
+            
+            if (existingReservation) {
+                alert('Pöytä on jo varattu!');
+                return;
+            }
+            
+            reservations.push({
+                tableNumber: tableId.toString(),
+                guestCount: parseInt(guestCount),
+                timestamp: new Date().toISOString()
+            });
+            
+            localStorage.setItem('tableReservations', JSON.stringify(reservations));
+            $('#reservationModal').modal('hide');
+            renderTableGrid();
+            updateStats();
+            this.reset();
+        });
     }
+
     const newOrderForm = document.getElementById('newOrderForm');
     if (newOrderForm) {
         newOrderForm.addEventListener('submit', handleNewOrder);
     }
+
     const activeOrders = document.getElementById('activeOrders');
     if (activeOrders) {
         activeOrders.addEventListener('click', (e) => {
             if (e.target.classList.contains('status-btn')) {
                 const orderId = parseInt(e.target.dataset.orderId);
                 updateOrderStatus(orderId, e.target.dataset.status);
+            }
+        });
+    }
+
+    const addOrderRow = document.getElementById('addOrderRow');
+    if (addOrderRow) {
+        addOrderRow.addEventListener('click', function() {
+            const orderRows = document.getElementById('orderRows');
+            if (!orderRows) return;
+            
+            const template = document.getElementById('orderRowTemplate');
+            const row = template.content.cloneNode(true);
+            orderRows.appendChild(row);
+            fillOrderRowSelects();
+            const removeBtn = orderRows.lastElementChild.querySelector('.btn-remove-row');
+            if (removeBtn) {
+                removeBtn.style.display = '';
+                removeBtn.addEventListener('click', function() {
+                    this.closest('.order-row').remove();
+                });
+            }
+        });
+    }
+
+    const orderRows = document.getElementById('orderRows');
+    if (orderRows) {
+        orderRows.addEventListener('click', function(e) {
+            if (e.target.classList.contains('btn-remove-row')) {
+                e.target.closest('.order-row').remove();
+            }
+        });
+    }
+
+    const tableOrderForm = document.getElementById('tableOrderForm');
+    if (tableOrderForm) {
+        tableOrderForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const tableId = document.getElementById('tableNumber').value;
+            const orderRows = document.querySelectorAll('.order-row');
+            const menuItems = JSON.parse(localStorage.getItem('menuItems')) || [];
+            const orders = JSON.parse(localStorage.getItem('activeOrders')) || [];
+            
+            const products = [];
+            orderRows.forEach(row => {
+                const menuItemId = row.querySelector('.modalMenuItems').value;
+                const quantity = row.querySelector('.modalOrderQuantity').value;
+                const selectedItem = menuItems.find(item => item.id == menuItemId);
+                
+                if (selectedItem) {
+                    products.push({
+                        menuItemId,
+                        menuItemName: selectedItem.name || selectedItem.fi || selectedItem.en || 'Tuote',
+                        quantity: parseInt(quantity)
+                    });
+                }
+            });
+
+            if (products.length > 0) {
+                orders.push({
+                    id: Date.now(),
+                    tableNumber: tableId,
+                    products,
+                    status: 'pending',
+                    timestamp: new Date().toISOString()
+                });
+                
+                localStorage.setItem('activeOrders', JSON.stringify(orders));
+                $('#orderModal').modal('hide');
+                renderTableGrid();
+                loadActiveOrders();
+                updateStats();
             }
         });
     }
@@ -295,23 +402,25 @@ function renderTableGrid() {
     TABLES.forEach(table => {
         const hasOrder = orders.some(order => order.tableNumber == table.id && order.status === 'pending');
         const isReserved = reservations.some(res => res.tableNumber == table.id.toString());
-        let btnClass = 'table-btn';
-        if (table.type === 'vip') btnClass += ' vip';
-        if (hasOrder) btnClass += ' has-order';
-        if (isReserved) btnClass += ' reserved';
         
-        const tableContainer = document.createElement('div');
-        tableContainer.className = 'table-container';
+        const template = document.getElementById('tableContainerTemplate');
+        const tableContainer = template.content.cloneNode(true);
+        const container = tableContainer.querySelector('.table-container');
+        const btn = container.querySelector('.table-btn');
+        const buttonContainer = container.querySelector('.table-buttons');
         
-        const btn = document.createElement('button');
-        btn.className = btnClass;
-        btn.textContent = typeof table.name === 'object' ? table.name[currentLang] : table.name;
-        
-        if (!isReserved) {
-            btn.onclick = () => openOrderModal(table.id);
-        } else {
-            btn.disabled = true;
+        if (table.type === 'vip') {
+            btn.classList.add('vip');
         }
+        
+        if (isReserved) {
+            btn.classList.add('reserved');
+            btn.disabled = true;
+        } else if (hasOrder) {
+            btn.classList.add('has-order');
+        }
+        
+        btn.textContent = typeof table.name === 'object' ? table.name[currentLang] : table.name;
         
         if (!isReserved) {
             const reserveBtn = document.createElement('button');
@@ -319,26 +428,26 @@ function renderTableGrid() {
             reserveBtn.setAttribute('data-lang', 'Varaa');
             reserveBtn.textContent = 'Varaa';
             reserveBtn.onclick = () => openReservationModal(table.id);
-            tableContainer.appendChild(reserveBtn);
-        }
-        
-        if (isReserved || hasOrder) {
+            buttonContainer.appendChild(reserveBtn);
+            
+            btn.onclick = () => openOrderModal(table.id);
+        } else {
+            const orderBtn = document.createElement('button');
+            orderBtn.className = 'btn btn-sm btn-success order-btn';
+            orderBtn.setAttribute('data-lang', 'TeeTilaus');
+            orderBtn.textContent = 'Tee tilaus';
+            orderBtn.onclick = () => openOrderModal(table.id);
+            buttonContainer.appendChild(orderBtn);
+            
             const releaseBtn = document.createElement('button');
             releaseBtn.className = 'btn btn-sm btn-danger release-btn';
             releaseBtn.setAttribute('data-lang', 'Vapauta');
             releaseBtn.textContent = 'Vapauta';
-            releaseBtn.onclick = () => {
-                if (isReserved) {
-                    releaseTable(table.id);
-                } else {
-                    cancelOrder(table.id);
-                }
-            };
-            tableContainer.appendChild(releaseBtn);
+            releaseBtn.onclick = () => releaseTable(table.id);
+            buttonContainer.appendChild(releaseBtn);
         }
         
-        tableContainer.appendChild(btn);
-        grid.appendChild(tableContainer);
+        grid.appendChild(container);
     });
 }
 
@@ -350,6 +459,11 @@ function releaseTable(tableId) {
         const reservations = JSON.parse(localStorage.getItem('tableReservations')) || [];
         const updatedReservations = reservations.filter(r => r.tableNumber !== tableId.toString());
         localStorage.setItem('tableReservations', JSON.stringify(updatedReservations));
+        
+        const orders = JSON.parse(localStorage.getItem('activeOrders')) || [];
+        const updatedOrders = orders.filter(order => order.tableNumber != tableId);
+        localStorage.setItem('activeOrders', JSON.stringify(updatedOrders));
+        
         renderTableGrid();
         updateStats();
     }
@@ -381,110 +495,18 @@ function fillOrderRowSelects() {
     });
 }
 
-document.getElementById('addOrderRow').addEventListener('click', function() {
-    const orderRows = document.getElementById('orderRows');
-    const row = document.createElement('div');
-    row.className = 'order-row d-flex align-items-end mb-2';
-    row.innerHTML = `
-        <div class="flex-grow-1 mr-2">
-            <label>Ruoka</label>
-            <select class="form-control modalMenuItems"></select>
-        </div>
-        <div style="width: 90px;" class="mr-2">
-            <label>Määrä</label>
-            <input type="number" class="form-control modalOrderQuantity" min="1" value="1" required>
-        </div>
-        <button type="button" class="btn btn-danger btn-remove-row" style="height:38px;">X</button>
-    `;
-    orderRows.appendChild(row);
-    fillOrderRowSelects();
-    row.querySelector('.btn-remove-row').style.display = '';
-    row.querySelector('.btn-remove-row').addEventListener('click', function() {
-        row.remove();
-    });
-});
-
-document.getElementById('orderRows').addEventListener('click', function(e) {
-    if (e.target.classList.contains('btn-remove-row')) {
-        e.target.closest('.order-row').remove();
-    }
-});
-
 function openOrderModal(tableId) {
-    document.getElementById('modalTableNumber').textContent = tableId;
+    document.getElementById('tableNumber').value = tableId;
     const orderRows = document.getElementById('orderRows');
     orderRows.innerHTML = '';
-    const row = document.createElement('div');
-    row.className = 'order-row d-flex align-items-end mb-2';
-    row.innerHTML = `
-        <div class="flex-grow-1 mr-2">
-            <label>Ruoka</label>
-            <select class="form-control modalMenuItems"></select>
-        </div>
-        <div style="width: 90px;" class="mr-2">
-            <label>Määrä</label>
-            <input type="number" class="form-control modalOrderQuantity" min="1" value="1" required>
-        </div>
-        <button type="button" class="btn btn-danger btn-remove-row" style="height:38px;display:none;">X</button>
-    `;
+    const template = document.getElementById('orderRowTemplate');
+    const row = template.content.cloneNode(true);
     orderRows.appendChild(row);
     fillOrderRowSelects();
-    document.getElementById('modalOrderQuantity')?.focus();
     $('#orderModal').modal('show');
-    document.getElementById('tableOrderForm').dataset.tableId = tableId;
 }
-
-document.getElementById('tableOrderForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    const tableId = this.dataset.tableId;
-    const orderRows = document.querySelectorAll('.order-row');
-    const menuItems = JSON.parse(localStorage.getItem('menuItems')) || [];
-    const orders = JSON.parse(localStorage.getItem('activeOrders')) || [];
-    const products = [];
-    orderRows.forEach(row => {
-        const menuItemId = row.querySelector('.modalMenuItems').value;
-        const quantity = row.querySelector('.modalOrderQuantity').value;
-        const selectedItem = menuItems.find(item => item.id == menuItemId);
-        products.push({
-            menuItemId,
-            menuItemName: selectedItem ? (selectedItem.name || selectedItem.fi || selectedItem.en || 'Tuote') : 'Tuote',
-            quantity
-        });
-    });
-    orders.push({
-        id: Date.now(),
-        tableNumber: tableId,
-        products,
-        status: 'pending',
-        timestamp: new Date().toISOString()
-    });
-    localStorage.setItem('activeOrders', JSON.stringify(orders));
-    $('#orderModal').modal('hide');
-    renderTableGrid();
-    loadActiveOrders();
-    updateStats();
-});
 
 function openReservationModal(tableId) {
-    document.getElementById('modalReservationTableNumber').textContent = tableId;
-    document.getElementById('tableReservationForm').dataset.tableId = tableId;
+    document.getElementById('tableNumber').value = tableId;
     $('#reservationModal').modal('show');
-}
-
-document.getElementById('tableReservationForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    const tableId = this.dataset.tableId;
-    const guestCount = document.getElementById('guestCount').value;
-    
-    const reservations = JSON.parse(localStorage.getItem('tableReservations')) || [];
-    reservations.push({
-        tableNumber: tableId.toString(),
-        guestCount: parseInt(guestCount),
-        timestamp: new Date().toISOString()
-    });
-    
-    localStorage.setItem('tableReservations', JSON.stringify(reservations));
-    $('#reservationModal').modal('hide');
-    renderTableGrid();
-    updateStats();
-}); 
+} 

@@ -8,9 +8,9 @@
         { "id": "6", "fi": "Croissant", "en": "Croissant", "ru": "Круассан" },
         { "id": "7", "fi": "Donitsi", "en": "Donut", "ru": "Пончик" },
         { "id": "8", "fi": "Mehu", "en": "Juice", "ru": "Сок" },
-        { "id": "9", "name": "Pizza Margherita" },
-        { "id": "10", "name": "Kana Caesar" },
-        { "id": "11", "name": "Burgeri" },
-        { "id": "12", "name": "Ranskalaiset" }
+        { "id": "9", "fi": "Pizza Margherita", "en": "Pizza Margherita", "ru": "Пицца Маргарита" },
+        { "id": "10", "fi": "Kana Caesar", "en": "Chicken Caesar", "ru": "Цезарь с курицей" },
+        { "id": "11", "fi": "Burgeri", "en": "Burger", "ru": "Бургер" },
+        { "id": "12", "fi": "Ranskalaiset", "en": "French fries", "ru": "Картофель фри" }
     ]
 } 

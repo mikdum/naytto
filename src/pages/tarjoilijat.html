@@ -81,59 +81,85 @@
         </footer>
     </div>
 
-    <div class="modal fade" id="orderModal" tabindex="-1" role="dialog">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content dark-card">
-                <div class="modal-header">
-                    <h5 class="modal-title" data-lang="UusiTilaus"></h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form id="tableOrderForm">
-                        <div id="orderRows">
-                            <div class="order-row d-flex align-items-end mb-2">
-                                <div class="flex-grow-1 mr-2">
-                                    <label data-lang="ValitseRuoka"></label>
-                                    <select class="form-control modalMenuItems"></select>
+    <template id="orderModalTemplate">
+        <div class="modal fade" id="orderModal" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content dark-card">
+                    <div class="modal-header">
+                        <h5 class="modal-title" data-lang="UusiTilaus"></h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="tableOrderForm">
+                            <div id="orderRows">
+                                <div class="order-row d-flex align-items-end mb-2">
+                                    <div class="flex-grow-1 mr-2">
+                                        <label data-lang="ValitseRuoka"></label>
+                                        <select class="form-control modalMenuItems"></select>
+                                    </div>
+                                    <div style="width: 90px;" class="mr-2">
+                                        <label data-lang="Maara"></label>
+                                        <input type="number" class="form-control modalOrderQuantity" min="1" value="1" required>
+                                    </div>
+                                    <button type="button" class="btn btn-danger btn-remove-row" style="height:38px;display:none;">X</button>
                                 </div>
-                                <div style="width: 90px;" class="mr-2">
-                                    <label data-lang="Maara"></label>
-                                    <input type="number" class="form-control modalOrderQuantity" min="1" value="1" required>
-                                </div>
-                                <button type="button" class="btn btn-danger btn-remove-row" style="height:38px;display:none;">X</button>
                             </div>
-                        </div>
-                        <button type="button" class="btn btn-secondary mb-3" id="addOrderRow" data-lang="LisaaTuote"></button>
-                        <button type="submit" class="btn btn-success" data-lang="LahetaTilaus"></button>
-                    </form>
+                            <button type="button" class="btn btn-secondary mb-3" id="addOrderRow" data-lang="LisaaTuote"></button>
+                            <button type="submit" class="btn btn-success" data-lang="LahetaTilaus"></button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    </template>
 
-    <div class="modal fade" id="reservationModal" tabindex="-1" role="dialog">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content dark-card">
-                <div class="modal-header">
-                    <h5 class="modal-title" data-lang="PoydanVaraus"></h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form id="tableReservationForm">
-                        <div class="form-group">
-                            <label data-lang="VieraidenMaara"></label>
-                            <input type="number" class="form-control" id="guestCount" min="1" value="1" required>
-                        </div>
-                        <button type="submit" class="btn btn-success" data-lang="Varaa"></button>
-                    </form>
+    <template id="reservationModalTemplate">
+        <div class="modal fade" id="reservationModal" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content dark-card">
+                    <div class="modal-header">
+                        <h5 class="modal-title" data-lang="PoydanVaraus"></h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="tableReservationForm">
+                            <div class="form-group">
+                                <label data-lang="VieraidenMaara"></label>
+                                <input type="number" class="form-control" id="guestCount" min="1" value="1" required>
+                                <input type="hidden" id="tableNumber" name="tableNumber">
+                            </div>
+                            <button type="submit" class="btn btn-success" data-lang="Varaa"></button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    </template>
+
+    <template id="tableContainerTemplate">
+        <div class="table-container">
+            <button class="table-btn"></button>
+            <div class="table-buttons"></div>
+        </div>
+    </template>
+
+    <template id="orderRowTemplate">
+        <div class="order-row d-flex align-items-end mb-2">
+            <div class="flex-grow-1 mr-2">
+                <label data-lang="ValitseRuoka">Valitse ruoka</label>
+                <select class="form-control modalMenuItems"></select>
+            </div>
+            <div style="width: 90px;" class="mr-2">
+                <label data-lang="Maara">Määrä</label>
+                <input type="number" class="form-control modalOrderQuantity" min="1" value="1" required>
+            </div>
+            <button type="button" class="btn btn-danger btn-remove-row" style="height:38px;">X</button>
+        </div>
+    </template>
 
     <div id="activeOrders" style="display:none"></div>
     <div id="reservedTables" style="display:none"></div>

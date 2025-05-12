@@ -213,5 +213,80 @@
         "fi": "Vapauta",
         "en": "Release",
         "ru": "Освободить"
+    },
+    "KokkienNakyma": {
+        "fi": "Kokkien näkymä",
+        "en": "Chef's view",
+        "ru": "Вид повара"
+    },
+    "KasiteltavatTilaukset": {
+        "fi": "Käsiteltävät tilaukset",
+        "en": "Pending orders",
+        "ru": "Ожидающие заказы"
+    },
+    "ValmistuneetTilaukset": {
+        "fi": "Valmistuneet tilaukset",
+        "en": "Completed orders",
+        "ru": "Выполненные заказы"
+    },
+    "MerkitseValmiiksi": {
+        "fi": "Merkitse valmiiksi",
+        "en": "Mark as completed",
+        "ru": "Отметить как готовое"
+    },
+    "Valmis": {
+        "fi": "Valmis",
+        "en": "Completed",
+        "ru": "Готово"
+    },
+    "TeeTilaus": {
+        "fi": "Tee tilaus",
+        "en": "Make order",
+        "ru": "Сделать заказ"
+    },
+    "LisaaTuote": {
+        "fi": "Lisää tuote",
+        "en": "Add product",
+        "ru": "Добавить продукт"
+    },
+    "AddUser": {
+        "fi": "Lisää käyttäjä",
+        "en": "Add user",
+        "ru": "Добавить пользователя"
+    },
+    "Name": {
+        "fi": "Nimi",
+        "en": "Name",
+        "ru": "Имя"
+    },
+    "Role": {
+        "fi": "Rooli",
+        "en": "Role",
+        "ru": "Роль"
+    },
+    "PIN": {
+        "fi": "PIN",
+        "en": "PIN",
+        "ru": "ПИН"
+    },
+    "Admin": {
+        "fi": "Admin",
+        "en": "Admin",
+        "ru": "Админ"
+    },
+    "Waiter": {
+        "fi": "Tarjoilija",
+        "en": "Waiter",
+        "ru": "Официант"
+    },
+    "Users": {
+        "fi": "Käyttäjät",
+        "en": "Users",
+        "ru": "Пользователи"
+    },
+    "Delete": {
+        "fi": "Poista",
+        "en": "Delete",
+        "ru": "Удалить"
     }
 }
