@@ -27,7 +27,7 @@ for (var i = 0; i < btns.length; i++) {
     else if (this.dataset.lang === "menu") {
       createmenuPanel();
     }
-   });
+  });
 }
 
 
@@ -53,7 +53,7 @@ function createUserPanel() {
         createUserTable();
       });
   }
-  document.getElementById("savechanges").onclick=function () { saveUsers() };
+  document.getElementById("savechanges").onclick = function () { saveUsers() };
 
 }
 
@@ -78,9 +78,9 @@ function createUserTable() {
   $tdName.textContent = 'Name';
   $tdRole.textContent = 'Role';
   $tdPin.textContent = 'Pin';
-  $tdName.setAttribute("data-lang","name");
-  $tdRole.setAttribute("data-lang","role");
-  $tdPin.setAttribute("data-lang","pincode");
+  $tdName.setAttribute("data-lang", "name");
+  $tdRole.setAttribute("data-lang", "role");
+  $tdPin.setAttribute("data-lang", "pincode");
 
   $tr.append($tdName);
   $tr.append($tdRole);
@@ -104,7 +104,7 @@ function createUserTable() {
 
     $tdName.textContent = element.name;
     $tdRole.textContent = element.role;
-    $tdRole.setAttribute("data-lang",element.role);
+    $tdRole.setAttribute("data-lang", element.role);
     $tdPin.textContent = element.pin;
 
     $tdDelete.innerHTML = `<a class='btn btn-light' href='#' onclick=deleteRow(this.parentNode.parentNode,"usersTable") ><img src='/images/crest.png' style="width: 20px; height: 20px;"></a>`;
@@ -182,9 +182,17 @@ function createMenuTables() {
     createDescriptionelement($currentItem, value.ru);
     createDescriptionelement($currentItem, value.fi);
     createDescriptionelement($currentItem, value.en);
+   
+   
+    $tdDelete = document.createElement('div');
+    $tdDelete.innerHTML = `<a class='btn btn-light mt-2  mr-2' href='#' onclick=editcurrentPartion("${value.en}") data-lang="edit" id="btn-addModalWindow" data-bs-toggle="modal" data-bs-target="#addModalWindow">qqq</a>`;
+    $currentItem.append($tdDelete);
+  
 
-
-
+    $tdDelete = document.createElement('div');
+    $tdDelete.innerHTML = `<a class='btn btn-light mt-2' href='#' onclick=deletecurrentPartion("${value.en}") ><img src='/images/crest.png' style="width: 20px; height: 20px;"></a>`;
+    $currentItem.append($tdDelete);
+  
 
     $menuPanel.appendChild($currentItem);
     $menuPanel.appendChild($table);
@@ -216,20 +224,60 @@ function createMenuTables() {
     });
 
 
-
+    document.querySelector('.btn-lang.btn_active').click();
 
   };
+  document.getElementById("savechanges").onclick = function () { saveMenu("") };
 
 }
 
+
+function editcurrentPartion(valueen) {
+  createModalPanel("menu");
+  currentMenuItem=menu[valueen];
+  console.log(currentMenuItem);
+
+  document.getElementById("AddMenuEn").value=valueen;
+  document.getElementById("AddMenuFi").value=currentMenuItem.fi;
+  document.getElementById("AddMenuRu").value=currentMenuItem.ru;
+  $tbody=document.querySelector("#menuTableAdding >tbody");
+  $tbody.removeChild($tbody.firstChild);
+  currentMenuItem.items.forEach(element => {
+    var $tr=addRowMenu();
+    console.log($tr.cells[0]);
+    $tr.cells[0].childNodes[0].value=element.ru;
+    $tr.cells[1].childNodes[0].value=element.fi;
+    $tr.cells[2].childNodes[0].value=element.en;
+    $tr.cells[3].childNodes[0].value=element.price;
+    $tbody.appendChild($tr);
+
+  });
+  document.getElementById("savechanges").onclick = function () { saveMenu(`${valueen}`) };
+
+}
+
+function deletecurrentPartion(valueen) {
+  menu=Object.fromEntries(Object.entries(menu).filter(([e]) => e !=valueen));
+  localStorage.setItem("nayttoMenu", JSON.stringify(menu));
+
+  while (rightPanelAdm.firstChild) {
+    rightPanelAdm.removeChild(rightPanelAdm.firstChild);
+  }
+
+     createmenuPanel();
+ 
+}
+
 function deleteRow(row, idtable) {
+  console.log(idtable)
   var table = document.getElementById(idtable);
   if (idtable === "usersTable") {
 
     users = users.filter((e, i) => e.name != row.cells[0].textContent);
     localStorage.setItem("nayttoUsers", JSON.stringify(users));
   }
-  else {
+
+  else if (idtable!="menuTableAdding"){
 
 
     var currentItems = menu[idtable.replace("menuTable", "")];
@@ -261,12 +309,37 @@ function createTrMenu(Ru, Fi, En, Price) {
   $tdEn.textContent = En;
   $tdPrice.textContent = Price;
 
-  
 
 
 
-  
 
+
+
+
+  $tr.append($tdRu);
+  $tr.append($tdFi);
+  $tr.append($tdEn);
+  $tr.append($tdPrice);
+  return $tr;
+
+
+}
+
+
+
+function createTrEpty() {
+
+  let $tr = document.createElement('tr');
+
+  let $tdRu = document.createElement('td'),
+    $tdFi = document.createElement('td'),
+    $tdEn = document.createElement('td');
+  $tdPrice = document.createElement('td');
+
+  $tdRu.innerHTML = "<input type='text'>";
+  $tdFi.innerHTML = "<input type='text'>";
+  $tdEn.innerHTML = "<input type='text'>";
+  $tdPrice.innerHTML = "<input type='number'>";
 
   $tr.append($tdRu);
   $tr.append($tdFi);
@@ -296,15 +369,92 @@ function clearCache() {
 }
 
 function createModalPanel(typeOfPanel) {
-  $titleLabel=document.getElementById("addModalWindowLabel");
-  $titleLabel.setAttribute("data-lang", "addingUsers");
+
   $bodyofform = document.querySelector(".modal-body");
   while ($bodyofform.firstChild) {
     $bodyofform.removeChild($bodyofform.firstChild);
   }
+  if (typeOfPanel == "user") {
+    createModalUsers();
+  }
+  else if (typeOfPanel == "menu") {
+    createModalMenu();
+  }
+  console.log(typeOfPanel);
+
+  document.querySelector('.btn-lang.btn_active').click();
+}
+function createModalMenu() {
+  document.getElementById("addModalWindow").querySelector(".modal-dialog").classList.add("modal-xl");
+  $titleLabel = document.getElementById("addModalWindowLabel");
+  $titleLabel.setAttribute("data-lang", "addingMenu");
+
+  addElementwithLabel($bodyofform, "AddMenuRu", "russian", "30");
+  addElementwithLabel($bodyofform, "AddMenuFi", "finnish", "30");
+  addElementwithLabel($bodyofform, "AddMenuEn", "english", "30");
+
+
+  const $parent = document.createElement('div');
+
+  $bodyofform.appendChild($parent);
+  $button = document.createElement('button');
+  $button.setAttribute("data-lang","addRow");
+  $button.classList.add("btn");
+  $button.classList.add("btn-secondary");
+  $button.onclick=function(){
+    var tr=addRowMenu();
+    document.querySelector("#menuTableAdding >tbody").appendChild(tr);
+  }
+  $parent.appendChild($button);
+
+  const $table = document.createElement('table'),
+    $thead = document.createElement('thead'),
+    $tbody = document.createElement('tbody');
+
+
+  $parent.appendChild($table);
+  $table.id="menuTableAdding";
+
+  let $tr = createTrMenu("Ru", "Fi", "En", "Price");
+
+  $tr.cells[3].setAttribute("data-lang", "price");
+
+
+
+  $thead.append($tr);
+
+
+  $table.classList.add("table");
+  $table.classList.add("table-dark");
+  $table.append($thead);
+  $table.append($tbody);
+
+  $button.click();
+
+
+
+
+
+
+}
+
+function addRowMenu(){
+  let $tr = createTrEpty();
+  $tdDelete = document.createElement('td');
+  $tdDelete.innerHTML = `<a class='btn btn-light' href='#' onclick=deleteRow(this.parentNode.parentNode,"menuTableAdding") ><img src='/images/crest.png' style="width: 20px; height: 20px;"></a>`;
+  $tr.append($tdDelete);
+ return $tr;
+}
+
+
+function createModalUsers() {
+  document.getElementById("addModalWindow").querySelector(".modal-dialog").classList.remove("modal-xl");
+
+  $titleLabel = document.getElementById("addModalWindowLabel");
+  $titleLabel.setAttribute("data-lang", "addingUsers");
 
   addElementwithLabel($bodyofform, "AddUserName", "user", "20");
-  var field =addElementwithLabel($bodyofform, "AddPincode", "pincode", "1");
+  var field = addElementwithLabel($bodyofform, "AddPincode", "pincode", "1");
   field.setAttribute("maxlength", 4);
 
 
@@ -313,35 +463,34 @@ function createModalPanel(typeOfPanel) {
   $parent.classList.add("form-check");
   $bodyofform.appendChild($parent);
 
-  field=addRadioElementwithLabel($parent, "bossRole", "boss");
+  field = addRadioElementwithLabel($parent, "bossRole", "boss");
   field.setAttribute("Checked", true);
   addRadioElementwithLabel($parent, "adminRole", "administrator");
   addRadioElementwithLabel($parent, "kokkinRole", "kokki");
   addRadioElementwithLabel($parent, "tarjoilijaRole", "tarjoilija");
-  
-  document.querySelector('.btn-lang.btn_active').click();
+
 }
 
-function createElement(tagofElement,elementId,datalang){
- const $element = document.createElement(tagofElement);
+function createElement(tagofElement, elementId, datalang) {
+  const $element = document.createElement(tagofElement);
   $element.id = elementId;
   $element.setAttribute("data-lang", datalang);
-return $element;
+  return $element;
 }
 
-function addRadioElementwithLabel($groupofElements,elementId, datalang) {
+function addRadioElementwithLabel($groupofElements, elementId, datalang) {
   const $parent = document.createElement('div');
   $groupofElements.appendChild($parent);
 
-  const $input=createElement('input',elementId,datalang);
+  const $input = createElement('input', elementId, datalang);
   $input.setAttribute("type", "radio");
-  $input.name="usersRoles";
-  $input.value=datalang;
+  $input.name = "usersRoles";
+  $input.value = datalang;
 
-  const $label=createElement('label',elementId,datalang);
+  const $label = createElement('label', elementId, datalang);
 
- $label.forHTML = elementId;
- $label.setAttribute("class", "col-sm-2 col-form-label");
+  $label.forHTML = elementId;
+  $label.setAttribute("class", "col-sm-2 col-form-label");
 
   $parent.appendChild($input);
   $parent.appendChild($label);
@@ -352,14 +501,14 @@ function addElementwithLabel($groupofElements, elementId, datalang, size) {
   const $parent = document.createElement('div');
   $groupofElements.appendChild($parent);
 
-  const $input=createElement('input',elementId,datalang);
+  const $input = createElement('input', elementId, datalang);
   $input.setAttribute("size", size);
 
 
-  const $label=createElement('label',"",datalang);
+  const $label = createElement('label', "", datalang);
 
- $label.forHTML = elementId;
- $label.setAttribute("class", "mx-2 col-sm-3 col-form-label");
+  $label.forHTML = elementId;
+  $label.setAttribute("class", "mx-2 col-sm-3 col-form-label");
 
   $parent.appendChild($label);
   $parent.appendChild($input);
@@ -386,13 +535,13 @@ function closemodalDiscard() {
 
 }
 
-function saveUsers(){
-  const name=document.getElementById("AddUserName").value;
-  const pin=document.getElementById("AddPincode").value;
-  const role=document.querySelector('input[name="usersRoles"]:checked').value;
-  const user={"name":name,"pin":pin,"role":role};
+function saveUsers() {
+  const name = document.getElementById("AddUserName").value;
+  const pin = document.getElementById("AddPincode").value;
+  const role = document.querySelector('input[name="usersRoles"]:checked').value;
+  const user = { "name": name, "pin": pin, "role": role };
   users.push(user);
-  localStorage.setItem("nayttoUsers", JSON.stringify(users)); 
+  localStorage.setItem("nayttoUsers", JSON.stringify(users));
 
   while (rightPanelAdm.firstChild) {
     rightPanelAdm.removeChild(rightPanelAdm.firstChild);
@@ -400,4 +549,38 @@ function saveUsers(){
   createUserPanel();
 
 
+}
+
+function saveMenu(valueen){
+  while (rightPanelAdm.firstChild) {
+    rightPanelAdm.removeChild(rightPanelAdm.firstChild);
+  }
+  if (valueen.length>0){
+    delete menu[valueen];
+  }
+
+
+    menuItem={
+      "ru": document.getElementById("AddMenuRu").value,
+      "fi": document.getElementById("AddMenuFi").value,
+      "en": document.getElementById("AddMenuEn").value,
+      "items": []
+          }
+     document.querySelectorAll("#menuTableAdding >tbody tr").forEach((element, index) => {
+
+      const item={
+        "ru": element.cells[0].childNodes[0].value,
+        "fi": element.cells[1].childNodes[0].value,
+        "en": element.cells[2].childNodes[0].value,
+        "price": Number(element.cells[3].childNodes[0].value)
+    }
+    
+    menuItem.items.push(item);
+    
+  });
+  console.log(menuItem);
+  menu[menuItem.en]=menuItem;
+  localStorage.setItem("nayttoMenu", JSON.stringify(menu));
+  createmenuPanel();
+ 
 }
