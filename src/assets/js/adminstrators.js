@@ -9,6 +9,7 @@ var btns = btnContainer.getElementsByClassName("list-group-item");
 
 
 var users = [];
+var tables = [];
 var menu = {};
 
 // Loop through the buttons and add the active class to the current/clicked button
@@ -27,10 +28,37 @@ for (var i = 0; i < btns.length; i++) {
     else if (this.dataset.lang === "menu") {
       createmenuPanel();
     }
+    else if (this.dataset.lang === "tables") {
+      createtablePanel();
+       
+    }
   });
 }
 
 
+function createtablePanel() {
+
+  addButton("tables");
+
+  nayttoTables = localStorage.getItem("nayttoTables");
+  if (nayttoTables != null) {
+    tables = JSON.parse(nayttoTables);
+    createTable();
+
+  }
+  else {
+
+    var langfile = '../data/tables.json';
+    fetch(langfile)
+      .then(response => response.json())
+      .then(langData => {
+        tables = langData;
+        createTable();
+      });
+  }
+  document.getElementById("savechanges").onclick = function () { saveTables() };
+
+}
 
 
 function createUserPanel() {
@@ -54,6 +82,45 @@ function createUserPanel() {
       });
   }
   document.getElementById("savechanges").onclick = function () { saveUsers() };
+
+}
+function createTable() {
+
+  const $table = document.createElement('table'),
+    $thead = document.createElement('thead'),
+    $tbody = document.createElement('tbody');
+  $table.id = "PydatTable";
+  
+  const $menuPanel = document.createElement('div');
+  $menuPanel.classList.add("rigth-card");
+  rightPanelAdm.appendChild($menuPanel);
+  $menuPanel.appendChild($table);
+
+  let $tr = createTrMenu("Ru", "Fi", "En", "type");
+
+  $tr.cells[3].setAttribute("data-lang", "type");
+  $thead.append($tr);
+
+
+  $table.classList.add("table");
+  $table.classList.add("table-dark");
+  $table.append($thead);
+  $table.append($tbody);
+
+
+  tables.forEach(element => {
+    let $tr = createTrMenu(element.name.ru, element.name.fi, element.name.en, element.type);
+    $tdDelete = document.createElement('td');
+    $tdDelete.innerHTML = `<a class='btn btn-light' href='#' onclick=deleteRow(this.parentNode.parentNode,"PydatTable") ><img src='/images/crest.png' style="width: 20px; height: 20px;"></a>`;
+    $tr.append($tdDelete);
+
+    $tbody.append($tr);
+
+  });
+
+
+
+  document.querySelector('.btn-lang.btn_active').click();
 
 }
 
@@ -201,9 +268,6 @@ function createMenuTables() {
     let $tr = createTrMenu("Ru", "Fi", "En", "Price");
 
     $tr.cells[3].setAttribute("data-lang", "price");
-
-
-
     $thead.append($tr);
 
 
@@ -269,12 +333,16 @@ function deletecurrentPartion(valueen) {
 }
 
 function deleteRow(row, idtable) {
-  console.log(idtable)
   var table = document.getElementById(idtable);
   if (idtable === "usersTable") {
 
     users = users.filter((e, i) => e.name != row.cells[0].textContent);
     localStorage.setItem("nayttoUsers", JSON.stringify(users));
+  }
+  else if (idtable === "PydatTable") {
+
+    tables = tables.filter((e, i) => e.name.en != row.cells[2].textContent);
+    localStorage.setItem("nayttoTables", JSON.stringify(tables));
   }
 
   else if (idtable!="menuTableAdding"){
@@ -379,8 +447,12 @@ function createModalPanel(typeOfPanel) {
   }
   else if (typeOfPanel == "menu") {
     createModalMenu();
+
   }
-  console.log(typeOfPanel);
+  else if (typeOfPanel == "tables") {
+    createModalTable();
+    
+  }
 
   document.querySelector('.btn-lang.btn_active').click();
 }
@@ -432,10 +504,6 @@ function createModalMenu() {
   $button.click();
 
 
-
-
-
-
 }
 
 function addRowMenu(){
@@ -445,7 +513,27 @@ function addRowMenu(){
   $tr.append($tdDelete);
  return $tr;
 }
+function createModalTable() {
+  document.getElementById("addModalWindow").querySelector(".modal-dialog").classList.remove("modal-xl");
 
+  $titleLabel = document.getElementById("addModalWindowLabel");
+  $titleLabel.setAttribute("data-lang", "addingTables");
+
+
+  addElementwithLabel($bodyofform, "AddTableRu", "russian", "30");
+  addElementwithLabel($bodyofform, "AddTableFi", "finnish", "30");
+  addElementwithLabel($bodyofform, "AddTableEn", "english", "30");
+
+
+  const $parent = document.createElement('div');
+  $parent.classList.add("form-check");
+  $bodyofform.appendChild($parent);
+
+  field = addRadioElementwithLabel($parent, "normalType", "normal");
+  field.setAttribute("Checked", true);
+  addRadioElementwithLabel($parent, "normalType", "vip");
+
+}
 
 function createModalUsers() {
   document.getElementById("addModalWindow").querySelector(".modal-dialog").classList.remove("modal-xl");
@@ -534,7 +622,22 @@ function addButton(buttonName) {
 function closemodalDiscard() {
 
 }
+function saveTables() {
+  const ru = document.getElementById("AddTableRu").value;
+  const fi = document.getElementById("AddTableFi").value;
+  const en = document.getElementById("AddTableEn").value;
+  const type = document.querySelector('input[name="usersRoles"]:checked').value;
+  const table = { "name": {"ru":ru,"fi":fi,"en":en}, "type": type };
+  tables.push(table);
+  localStorage.setItem("nayttoTables", JSON.stringify(tables));
 
+  while (rightPanelAdm.firstChild) {
+    rightPanelAdm.removeChild(rightPanelAdm.firstChild);
+  }
+  createtablePanel();
+
+
+}
 function saveUsers() {
   const name = document.getElementById("AddUserName").value;
   const pin = document.getElementById("AddPincode").value;
@@ -578,7 +681,6 @@ function saveMenu(valueen){
     menuItem.items.push(item);
     
   });
-  console.log(menuItem);
   menu[menuItem.en]=menuItem;
   localStorage.setItem("nayttoMenu", JSON.stringify(menu));
   createmenuPanel();

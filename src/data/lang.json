@@ -156,6 +156,11 @@
         "fi": "Käyttäjien lisääminen",
         "en": "Adding users"
     },
+    "addingTables": {
+        "ru": "Добавление столиков",
+        "fi": "Pöytien lisääminen",
+        "en": "Adding tables"
+    },
     "addingMenu": {
         "ru": "Добавление меню",
         "fi": "Valikkon lisääminen",
@@ -220,5 +225,20 @@
        "fi": "Muuttaa",
        "en": "Edit"
    }
-
+   ,
+    "type": {
+       "ru": "Тип",
+       "fi": "Tyyppi",
+       "en": "Type"
+   }   ,
+   "normal": {
+      "ru": "Обычный",
+      "fi": "Normaali",
+      "en": "Normal"
+  } ,
+  "vip": {
+     "ru": "VIP",
+     "fi": "VIP",
+     "en": "VIP"
+ }
 }
