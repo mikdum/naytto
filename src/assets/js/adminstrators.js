@@ -357,10 +357,10 @@ function deleteRow(row, idtable) {
 
 }
 function createDescriptionelement($parent, currentdescription) {
-    const $element = document.createElement('div');
-    $element.classList.add("description");
-    $element.textContent = currentdescription;
-    $parent.appendChild($element);
+  $element = document.createElement('div');
+  $element.classList.add("description");
+  $element.textContent = currentdescription;
+  $parent.appendChild($element);
 }
 
 function createTrMenu(Ru, Fi, En, Price) {

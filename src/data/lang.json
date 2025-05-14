@@ -10,19 +10,19 @@
         "fi": "Kirjaudu sisään jatkaaksesi"
     },
     "AboutCompanytitle": {
-        "ru": "О компании",
+        "ru": "О комании",
         "en": "About company",
         "fi": "Yrityksestä"
     },
     "AboutCompanyDescription": {
-        "ru": "Это пример кафе.",
-        "en": "This is a sample café.",
-        "fi": "Tämä on esimerkkikahvila."
+        "ru": "Учебный проект ESEDU система создания заказов",
+        "en": "Educational project ESEDU order creation system",
+        "fi": "Koulutusprojekti ESEDU-tilausten luontijärjestelmä"
     },
     "AboutCompanyDescription2": {
-        "ru": "Добро пожаловать!",
-        "fi": "Tervetuloa!",
-        "en": "Welcome!"
+        "ru": "Является частью обучения по программированию ",
+        "fi": "Se on osa ohjelmointikoulutusta.",
+        "en": "It is part of the programming training."
     },   
     "Copyright": {
         "ru": "© 2025 Копирайт: Думма Михаил, Пииспанен Юхо, Браун Лоуренс",
@@ -40,23 +40,23 @@
         "en": "Opening hours"
     },
     "Openinghours11": {
-        "ru": "Пн - Чт",
+        "ru": "Пон - Четв",
         "fi": "Ma - To",
         "en": "Mon - Thu"
     },
     "Openinghours12": {
-        "ru": "8-21",
+        "ru": "08:00 - 21:00",
         "fi": "8am - 9pm",
         "en": "8am - 9pm"
     },
     "Openinghours21": {
-        "ru": "Пт - Сб",
+        "ru": "Пятн -Субб",
         "fi": "Pe - La",
         "en": "Fri - Sat"
     },
     "Openinghours22": {
-        "ru": "8-01",
-        "fi": "8am - 1am",
+        "ru": "08:00-23:00",
+        "fi": "8am - 11pm",
         "en": "8am - 11pm"
     },
     "Openinghours31": {
@@ -65,7 +65,7 @@
         "en": "Sun"
     },
     "Openinghours32": {
-        "ru": "9-22",
+        "ru": "09:00 - 22:00",
         "fi": "9am - 10pm",
         "en": "9am - 10pm"
     },
@@ -80,9 +80,9 @@
         "en": "Enter Pin code"
     },
     "Poistu": {
-        "ru": "Выйти",
+        "ru": "Выход",
         "fi": "Poistu",
-        "en": "Logout"
+        "en": "Exit"
     },
     "Clear": {
         "ru": "Очистить",
@@ -93,107 +93,20 @@
         "ru": "Войти",
         "fi": "Kirjaudu",
         "en": "Enter"
-    },
-    "Naytto": {
-        "fi": "Näyttö",
-        "en": "Display",
-        "ru": "Экран"
-    },
-    "Etusivu": {
-        "fi": "Etusivu",
-        "en": "Home",
-        "ru": "Главная"
-    },
-    "Tilaukset": {
-        "fi": "Tilaukset",
-        "en": "Orders",
-        "ru": "Заказы"
-    },
-    "Poydat": {
-        "fi": "Pöydät",
-        "en": "Tables",
-        "ru": "Столы"
-    },
-    "Tilastot": {
-        "fi": "Tilastot",
-        "en": "Statistics",
-        "ru": "Статистика"
-    },
-    "PoydanVaraus": {
-        "fi": "Pöydän varaus",
-        "en": "Table reservation",
-        "ru": "Бронирование стола"
-    },
-    "PoydanNumero": {
-        "fi": "Pöydän numero",
-        "en": "Table number",
-        "ru": "Номер стола"
-    },
-    "VieraidenMaara": {
-        "fi": "Vieraiden määrä",
-        "en": "Number of guests",
-        "ru": "Количество гостей"
-    },
-    "Varaa": {
-        "fi": "Varaa",
-        "en": "Reserve",
-        "ru": "Забронировать"
-    },
-    "VaratutPoydat": {
-        "fi": "Varatut pöydät",
-        "en": "Reserved tables",
-        "ru": "Забронированные столы"
-    },
-    "AktiivisetTilaukset": {
-        "fi": "Aktiiviset tilaukset",
-        "en": "Active orders",
-        "ru": "Активные заказы"
-    },
-    "UusiTilaus": {
-        "fi": "Uusi tilaus",
-        "en": "New order",
-        "ru": "Новый заказ"
-    },
-    "ValitseRuoka": {
-        "fi": "Valitse ruoka",
-        "en": "Select food",
-        "ru": "Выберите блюдо"
-    },
-    "Maara": {
-        "fi": "Määrä",
-        "en": "Quantity",
-        "ru": "Количество"
-    },
-    "LahetaTilaus": {
-        "fi": "Lähetä tilaus",
-        "en": "Send order",
-        "ru": "Отправить заказ"
-    },
-    "VieraidenMaaraStat": {
-        "fi": "Vieraiden määrä:",
-        "en": "Number of guests:",
-        "ru": "Количество гостей:"
-    },
-    "AktiivisetTilauksetStat": {
-        "fi": "Aktiiviset tilaukset:",
-        "en": "Active orders:",
-        "ru": "Активные заказы:"
-    },
-    "TanaanTilatut": {
-        "fi": "Tänään tilatut:",
-        "en": "Ordered today:",
-        "ru": "Заказано сегодня:"
-    },
+    }
+    ,
     "controlpanel": {
         "ru": "Управление",
         "fi": "hallintapaneeli",
         "en": "Control panel"
-    },
+    }
+    ,
     "users": {
         "ru": "Пользователи",
-        "fi": "Käyttäjät",
+        "fi": "Käytäjät",
         "en": "Users"
-    },
+    }
+        ,
     "user": {
         "ru": "Пользователь",
         "fi": "Käyttäjä",
@@ -203,92 +116,11 @@
         "ru": "Меню",
         "fi": "Valikko",
         "en": "Menu"
-    },
+    } ,
     "tables": {
         "ru": "Столики",
         "fi": "Pöydät",
         "en": "Tables"
-    },
-    "Vapauta": {
-        "fi": "Vapauta",
-        "en": "Release",
-        "ru": "Освободить"
-    },
-    "KokkienNakyma": {
-        "fi": "Kokkien näkymä",
-        "en": "Chef's view",
-        "ru": "Вид повара"
-    },
-    "KasiteltavatTilaukset": {
-        "fi": "Käsiteltävät tilaukset",
-        "en": "Pending orders",
-        "ru": "Ожидающие заказы"
-    },
-    "ValmistuneetTilaukset": {
-        "fi": "Valmistuneet tilaukset",
-        "en": "Completed orders",
-        "ru": "Выполненные заказы"
-    },
-    "MerkitseValmiiksi": {
-        "fi": "Merkitse valmiiksi",
-        "en": "Mark as completed",
-        "ru": "Отметить как готовое"
-    },
-    "Valmis": {
-        "fi": "Valmis",
-        "en": "Completed",
-        "ru": "Готово"
-    },
-    "TeeTilaus": {
-        "fi": "Tee tilaus",
-        "en": "Make order",
-        "ru": "Сделать заказ"
-    },
-    "LisaaTuote": {
-        "fi": "Lisää tuote",
-        "en": "Add product",
-        "ru": "Добавить продукт"
-    },
-    "AddUser": {
-        "fi": "Lisää käyttäjä",
-        "en": "Add user",
-        "ru": "Добавить пользователя"
-    },
-    "Name": {
-        "fi": "Nimi",
-        "en": "Name",
-        "ru": "Имя"
-    },
-    "Role": {
-        "fi": "Rooli",
-        "en": "Role",
-        "ru": "Роль"
-    },
-    "PIN": {
-        "fi": "PIN",
-        "en": "PIN",
-        "ru": "ПИН"
-    },
-    "Admin": {
-        "fi": "Admin",
-        "en": "Admin",
-        "ru": "Админ"
-    },
-    "Waiter": {
-        "fi": "Tarjoilija",
-        "en": "Waiter",
-        "ru": "Официант"
-    },
-    "Users": {
-        "fi": "Käyttäjät",
-        "en": "Users",
-        "ru": "Пользователи"
-    },
-    "Delete": {
-        "fi": "Poista",
-        "en": "Delete",
-        "ru": "Удалить"
-    }
     },
     "pincode": {
         "ru": "Пинкод",
