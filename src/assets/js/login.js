@@ -1,6 +1,5 @@
 
 let pinCode = "";
-const correctPin = "1234";
 
 // Lisää numero PIN-koodiin
 document.querySelectorAll('.btn-num').forEach(button => {
@@ -20,13 +19,52 @@ document.querySelector('.btn-clear').addEventListener('click', () => {
 
 // Tarkista PIN-koodi
 document.querySelector('.btn-enter').addEventListener('click', () => {
-    if (pinCode === correctPin) {
+
+    nayttoUsers = localStorage.getItem("nayttoUsers");
+    if (nayttoUsers != null) {
+        users = JSON.parse(nayttoUsers);
+        checkPinCode();
+
+    }
+    else {
+
+        var langfile = '../data/users.json';
+        fetch(langfile)
+            .then(response => response.json())
+            .then(langData => {
+                users = langData;
+                checkPinCode();
+            });
+    }
+
+
+
+});
+
+function checkPinCode() {
+
+    currentUser = users.filter((e, i) => e.pin === pinCode);
+    console.log(pinCode);
+    console.log(currentUser);
+    if (currentUser.length > 0 && currentUser[0].role === "kokki") {
+        window.location.href = '/src/pages/kokit.html';
+    }
+
+    else if (currentUser.length > 0 && currentUser[0].role === "tarjoilija") {
+        window.location.href = '/src/pages/tarjoilijat.html';
+    }
+    else if (currentUser.length > 0 && currentUser[0].role === "administrator") {
         window.location.href = '/src/pages/adminstrators.html';
-    } else {
+    }
+    else if (currentUser.length > 0 && currentUser[0].role === "boss") {
+        window.location.href = '/src/pages/ohjaaja.html';
+    }
+
+    else {
         pinCode = "";
         updatePinDisplay();
     }
-});
+}
 
 // Päivitä PIN-näyttö
 function updatePinDisplay() {
@@ -39,3 +77,10 @@ function updatePinDisplay() {
         }
     });
 } 
+
+function clearCache() {
+    localStorage.removeItem("nayttoUsers");
+    localStorage.removeItem("nayttoMenu");
+    localStorage.removeItem("nayttoTables");
+  
+  }

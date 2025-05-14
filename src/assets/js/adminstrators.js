@@ -421,6 +421,8 @@ function createTrEpty() {
 function clearCache() {
   localStorage.removeItem("nayttoUsers");
   localStorage.removeItem("nayttoMenu");
+  localStorage.removeItem("nayttoTables");
+
   var current = document.getElementsByClassName("active");
   while (rightPanelAdm.firstChild) {
     rightPanelAdm.removeChild(rightPanelAdm.firstChild);
@@ -431,6 +433,9 @@ function clearCache() {
   }
   else if (current[0].dataset.lang === "menu") {
     createmenuPanel();
+  }
+  else if (current[0].dataset.lang === "tables") {
+    createtablePanel();
   }
 
 

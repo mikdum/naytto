@@ -1,65 +1,32 @@
 
-:root {
-    --bg: #1a1a1a;
-    --fg: #ffffff;
-    --border: #666666;
-    --button-bg: rgba(255, 255, 255, 0.05);
-    --button-hover: rgba(255, 255, 255, 0.1);
-    --clear-bg: #666666;
-    --clear-hover: #808080;
-    --card-bg: rgba(255, 255, 255, 0.05);
-    --border-light: rgba(255, 255, 255, 0.1);
-    --box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+.main-content2{
+    background-image: url('../../../images/ravintola.jpg');
+    min-width: 300px;
 }
-
-
-[data-theme="light"] {
-    --bg: #f0f0f0;
-    --fg: #000000;
-    --border: #bbbbbb;
-    --button-bg: rgba(0, 0, 0, 0.05);
-    --button-hover: rgba(0, 0, 0, 0.1);
-    --clear-bg: #bbbbbb;
-    --clear-hover: #999999;
-    --card-bg: rgba(255, 255, 255, 0.8);
-    --border-light: rgba(0, 0, 0, 0.1);
-    --box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+.login-card{
+    height: 50%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10vmin;
+    padding: 1rem;
+    
 }
-
-
-body {
-    background: var(--bg);
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0;
-    padding: 0;
-    color: var(--fg);
-    transition: background 0.3s, color 0.3s;
+.menu-card, #right-panel-adm {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    
+    text-align: center;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    border: 1px solid rgba(255, 255, 255, 0.18);
 }
-
-.main-container {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 2rem;
-}
-
-.main-content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-}
-
 .pin-container {
     display: flex;
     justify-content: center;
     gap: 10px;
     margin: 20px 0;
 }
-
 .pin-digit {
     width: 40px;
     height: 40px;
@@ -76,7 +43,8 @@ body {
 }
 
 .pin-digit.filled {
-    background: var(--border);
+  
+    background: black;
 }
 
 .keypad {
@@ -85,28 +53,23 @@ body {
     gap: 10px;
     max-width: 300px;
     margin: 0 auto;
-    width: 100%;
 }
-
 .btn-num,
 .btn-clear,
 .btn-enter {
     aspect-ratio: 1;
-    min-width: 60px;
-    min-height: 60px;
+
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 1.2rem;
-    border-radius: 15px;
+    border-radius: 1vmin;
     cursor: pointer;
     transition: all 0.3s ease;
     backdrop-filter: blur(10px);
     border: 1px solid var(--border-light);
     color: var(--fg);
 }
-
-
 .btn-num {
     background: var(--button-bg);
     border: none;
@@ -116,8 +79,6 @@ body {
     background: var(--button-hover);
     transform: translateY(-2px);
 }
-
-
 .btn-clear,
 .btn-enter {
     background: var(--clear-bg);
@@ -129,17 +90,4 @@ body {
     background: var(--clear-hover);
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(128, 128, 128, 0.4);
-}
-
-.login-card {
-    background: var(--card-bg);
-    backdrop-filter: blur(10px);
-    border-radius: 20px;
-    padding: 2rem;
-    text-align: center;
-    box-shadow: var(--box-shadow);
-    border: 1px solid var(--border-light);
-    max-width: 400px;
-    width: 100%;
-    transition: background 0.3s, border 0.3s, box-shadow 0.3s;
 }
