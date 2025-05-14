@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-lang="Naytto">Näyttö - Tarjoilijat</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"></script>
+    <script src="../assets/js/common.js" defer></script>
+    <script src="../assets/js/tarjoilijat.js" defer></script>
+</head>
+
+<body class="dark-theme">
+    <div style="position: absolute; top: 20px; left: 20px; z-index: 1000;">
+        <button type="button" class="btn btn-lang btn_active" data-btn="fi">FI</button>
+        <button type="button" class="btn btn-lang" data-btn="en">EN</button>
+        <button type="button" class="btn btn-lang" data-btn="ru">RU</button>
+    </div>
+    <div class="wrapper">
+        <div class="main">
+            <div class="container mt-4">
+                <div class="row">
+                    <div class="col-md-12 d-flex flex-column align-items-center justify-content-start">
+                        <div id="tableGrid" class="table-grid"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="dark-footer">
+            <div class="container p-4">
+                <div class="row mt-4">
+                    <div class="col-lg-4 col-md-12 mb-4 mb-md-0">
+                        <h5 class="text-uppercase mb-4 text-light" data-lang="AboutCompanytitle"></h5>
+                        <p class="text-light" data-lang="AboutCompanyDescription"></p>
+                        <p class="text-light" data-lang="AboutCompanyDescription2"></p>
+                    </div>
+                    <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+                        <ul class="fa-ul text-light" style="margin-left: 1.65em;">
+                            <li class="mb-3">
+                                <span class="fa-li"><i class="fas fa-home"></i></span>
+                                <span class="ms-2" data-lang="Kaupunki"></span>
+                            </li>
+                            <li class="mb-3">
+                                <span class="fa-li"><i class="fas fa-envelope"></i></span>
+                                <span class="ms-2">info@example.com</span>
+                            </li>
+                            <li class="mb-3">
+                                <span class="fa-li"><i class="fas fa-phone"></i></span>
+                                <span class="ms-2">+ 01 234 567 88</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+                        <h5 class="text-uppercase mb-4 text-light" data-lang="Openinghours"></h5>
+                        <table class="table text-center text-light">
+                            <tbody class="font-weight-normal">
+                                <tr>
+                                    <td data-lang="Openinghours11"></td>
+                                    <td data-lang="Openinghours12"></td>
+                                </tr>
+                                <tr>
+                                    <td data-lang="Openinghours21"></td>
+                                    <td data-lang="Openinghours22"></td>
+                                </tr>
+                                <tr>
+                                    <td data-lang="Openinghours31"></td>
+                                    <td data-lang="Openinghours32"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center p-3 copyright" data-lang="Copyright"></div>
+        </footer>
+    </div>
+
+    <template id="orderModalTemplate">
+        <div class="modal fade" id="orderModal" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content dark-card">
+                    <div class="modal-header">
+                        <h5 class="modal-title" data-lang="UusiTilaus"></h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="tableOrderForm">
+                            <div id="orderRows">
+                                <div class="order-row d-flex align-items-end mb-2">
+                                    <div class="flex-grow-1 mr-2">
+                                        <label data-lang="ValitseRuoka"></label>
+                                        <select class="form-control modalMenuItems"></select>
+                                    </div>
+                                    <div style="width: 90px;" class="mr-2">
+                                        <label data-lang="Maara"></label>
+                                        <input type="number" class="form-control modalOrderQuantity" min="1" value="1" required>
+                                    </div>
+                                    <button type="button" class="btn btn-danger btn-remove-row" style="height:38px;display:none;">X</button>
+                                </div>
+                            </div>
+                            <button type="button" class="btn btn-secondary mb-3" id="addOrderRow" data-lang="LisaaTuote"></button>
+                            <button type="submit" class="btn btn-success" data-lang="LahetaTilaus"></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <template id="reservationModalTemplate">
+        <div class="modal fade" id="reservationModal" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content dark-card">
+                    <div class="modal-header">
+                        <h5 class="modal-title" data-lang="PoydanVaraus"></h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="tableReservationForm">
+                            <div class="form-group">
+                                <label data-lang="VieraidenMaara"></label>
+                                <input type="number" class="form-control" id="guestCount" min="1" value="1" required>
+                                <input type="hidden" id="tableNumber" name="tableNumber">
+                            </div>
+                            <button type="submit" class="btn btn-success" data-lang="Varaa"></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <template id="tableContainerTemplate">
+        <div class="table-container">
+            <button class="table-btn"></button>
+            <div class="table-buttons"></div>
+        </div>
+    </template>
+
+    <template id="orderRowTemplate">
+        <div class="order-row d-flex align-items-end mb-2">
+            <div class="flex-grow-1 mr-2">
+                <label data-lang="ValitseRuoka">Valitse ruoka</label>
+                <select class="form-control modalMenuItems"></select>
+            </div>
+            <div style="width: 90px;" class="mr-2">
+                <label data-lang="Maara">Määrä</label>
+                <input type="number" class="form-control modalOrderQuantity" min="1" value="1" required>
+            </div>
+            <button type="button" class="btn btn-danger btn-remove-row" style="height:38px;">X</button>
+        </div>
+    </template>
+
+    <div id="activeOrders" style="display:none"></div>
+    <div id="reservedTables" style="display:none"></div>
+    <span id="totalGuests" style="display:none"></span>
+    <span id="activeOrdersCount" style="display:none"></span>
+    <span id="todayOrders" style="display:none"></span>
+</body>
+
+</html>
