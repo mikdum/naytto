@@ -10,7 +10,7 @@
         "fi": "Kirjaudu sisään jatkaaksesi"
     },
     "AboutCompanytitle": {
-        "ru": "О комании",
+        "ru": "О компании",
         "en": "About company",
         "fi": "Yrityksestä"
     },
@@ -40,12 +40,12 @@
         "en": "Opening hours"
     },
     "Openinghours11": {
-        "ru": "Пон - Четв",
+        "ru": "Пн - Чт",
         "fi": "Ma - To",
         "en": "Mon - Thu"
     },
     "Openinghours12": {
-        "ru": "08:00 - 21:00",
+        "ru": "8-21",
         "fi": "8am - 9pm",
         "en": "8am - 9pm"
     },
@@ -80,9 +80,9 @@
         "en": "Enter Pin code"
     },
     "Poistu": {
-        "ru": "Выход",
+        "ru": "Выйти",
         "fi": "Poistu",
-        "en": "Exit"
+        "en": "Logout"
     },
     "Clear": {
         "ru": "Очистить",
@@ -93,20 +93,107 @@
         "ru": "Войти",
         "fi": "Kirjaudu",
         "en": "Enter"
-    }
-    ,
+    },
+    "Naytto": {
+        "fi": "Näyttö",
+        "en": "Display",
+        "ru": "Экран"
+    },
+    "Etusivu": {
+        "fi": "Etusivu",
+        "en": "Home",
+        "ru": "Главная"
+    },
+    "Tilaukset": {
+        "fi": "Tilaukset",
+        "en": "Orders",
+        "ru": "Заказы"
+    },
+    "Poydat": {
+        "fi": "Pöydät",
+        "en": "Tables",
+        "ru": "Столы"
+    },
+    "Tilastot": {
+        "fi": "Tilastot",
+        "en": "Statistics",
+        "ru": "Статистика"
+    },
+    "PoydanVaraus": {
+        "fi": "Pöydän varaus",
+        "en": "Table reservation",
+        "ru": "Бронирование стола"
+    },
+    "PoydanNumero": {
+        "fi": "Pöydän numero",
+        "en": "Table number",
+        "ru": "Номер стола"
+    },
+    "VieraidenMaara": {
+        "fi": "Vieraiden määrä",
+        "en": "Number of guests",
+        "ru": "Количество гостей"
+    },
+    "Varaa": {
+        "fi": "Varaa",
+        "en": "Reserve",
+        "ru": "Забронировать"
+    },
+    "VaratutPoydat": {
+        "fi": "Varatut pöydät",
+        "en": "Reserved tables",
+        "ru": "Забронированные столы"
+    },
+    "AktiivisetTilaukset": {
+        "fi": "Aktiiviset tilaukset",
+        "en": "Active orders",
+        "ru": "Активные заказы"
+    },
+    "UusiTilaus": {
+        "fi": "Uusi tilaus",
+        "en": "New order",
+        "ru": "Новый заказ"
+    },
+    "ValitseRuoka": {
+        "fi": "Valitse ruoka",
+        "en": "Select food",
+        "ru": "Выберите блюдо"
+    },
+    "Maara": {
+        "fi": "Määrä",
+        "en": "Quantity",
+        "ru": "Количество"
+    },
+    "LahetaTilaus": {
+        "fi": "Lähetä tilaus",
+        "en": "Send order",
+        "ru": "Отправить заказ"
+    },
+    "VieraidenMaaraStat": {
+        "fi": "Vieraiden määrä:",
+        "en": "Number of guests:",
+        "ru": "Количество гостей:"
+    },
+    "AktiivisetTilauksetStat": {
+        "fi": "Aktiiviset tilaukset:",
+        "en": "Active orders:",
+        "ru": "Активные заказы:"
+    },
+    "TanaanTilatut": {
+        "fi": "Tänään tilatut:",
+        "en": "Ordered today:",
+        "ru": "Заказано сегодня:"
+    },
     "controlpanel": {
         "ru": "Управление",
         "fi": "hallintapaneeli",
         "en": "Control panel"
-    }
-    ,
+    },
     "users": {
         "ru": "Пользователи",
-        "fi": "Käytäjät",
+        "fi": "Käyttäjät",
         "en": "Users"
-    }
-        ,
+    },
     "user": {
         "ru": "Пользователь",
         "fi": "Käyttäjä",
@@ -116,78 +203,61 @@
         "ru": "Меню",
         "fi": "Valikko",
         "en": "Menu"
-    } ,
+    },
     "tables": {
         "ru": "Столики",
         "fi": "Pöydät",
         "en": "Tables"
     },
-    "pincode": {
-        "ru": "Пинкод",
-        "fi": "Pin-code",
-        "en": "Pin-code"
+    "Vapauta": {
+        "fi": "Vapauta",
+        "en": "Release",
+        "ru": "Освободить"
     },
-    "boss": {
-        "ru": "Руководитель",
-        "fi": "Ohjaja",
-        "en": "Boss"
-    }
-    ,
-    "administrator": {
-        "ru": "Администратор",
-        "fi": "Ylläpitäjä",
-        "en": "Administrator"
-    }
-    ,
-    "kokki": {
-        "ru": "Повар",
-        "fi": "Kokki",
-        "en": "Cooker"
-    }
-    ,
-    "tarjoilija": {
-        "ru": "Официант",
-        "fi": "Tarjoilija",
-        "en": "Waiter"
-    }
-    ,
-    "addingUsers": {
-        "ru": "Добавление пользователей",
-        "fi": "Käyttäjien lisääminen",
-        "en": "Adding users"
+    "KokkienNakyma": {
+        "fi": "Kokkien näkymä",
+        "en": "Chef's view",
+        "ru": "Вид повара"
     },
-    "addingTables": {
-        "ru": "Добавление столиков",
-        "fi": "Pöytien lisääminen",
-        "en": "Adding tables"
+    "KasiteltavatTilaukset": {
+        "fi": "Käsiteltävät tilaukset",
+        "en": "Pending orders",
+        "ru": "Ожидающие заказы"
     },
-    "addingMenu": {
-        "ru": "Добавление меню",
-        "fi": "Valikkon lisääminen",
-        "en": "Adding menu"
-    },"close": {
-        "ru": "Закрыть",
-        "fi": "Sulkea",
-        "en": "Close"
-    }
-,
-    "savechanges": {
-        "ru": "Сохранить",
-        "fi": "Tallenna muutokset",
-        "en": "Save changes"
-    }
-,
-    "price": {
-        "ru": "Цена",
-        "fi": "Hinta",
-        "en": "Price"
+    "ValmistuneetTilaukset": {
+        "fi": "Valmistuneet tilaukset",
+        "en": "Completed orders",
+        "ru": "Выполненные заказы"
     },
-
-
-    "name": {
-        "ru": "Имя",
+    "MerkitseValmiiksi": {
+        "fi": "Merkitse valmiiksi",
+        "en": "Mark as completed",
+        "ru": "Отметить как готовое"
+    },
+    "Valmis": {
+        "fi": "Valmis",
+        "en": "Completed",
+        "ru": "Готово"
+    },
+    "TeeTilaus": {
+        "fi": "Tee tilaus",
+        "en": "Make order",
+        "ru": "Сделать заказ"
+    },
+    "LisaaTuote": {
+        "fi": "Lisää tuote",
+        "en": "Add product",
+        "ru": "Добавить продукт"
+    },
+    "AddUser": {
+        "fi": "Lisää käyttäjä",
+        "en": "Add user",
+        "ru": "Добавить пользователя"
+    },
+    "Name": {
         "fi": "Nimi",
-        "en": "Name"
+        "en": "Name",
+        "ru": "Имя"
     },
     
 
@@ -240,5 +310,5 @@
      "ru": "VIP",
      "fi": "VIP",
      "en": "VIP"
- }
+    }
 }
