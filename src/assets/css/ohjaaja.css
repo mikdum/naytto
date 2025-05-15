@@ -1,0 +1,27 @@
+
+.main-content2{
+    display: flex;
+    min-height:70vh;
+    padding: 2rem;
+    margin-top: 4rem;
+}
+
+
+.main-container-adm {
+    min-height: 70vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.main-content2{
+    background-image: url('../../../images/ravintola.jpg');
+    min-width: 300px;
+}
+
+
+@media (max-width: 480px) {
+
+    .menu-card{
+        display: none;
+    }
+}
