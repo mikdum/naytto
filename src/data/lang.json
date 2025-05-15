@@ -311,4 +311,77 @@
      "fi": "VIP",
      "en": "VIP"
     }
+
+
+,
+    "pincode": {
+        "ru": "Пинкод",
+        "fi": "Pin-code",
+        "en": "Pin-code"
+    },
+    "boss": {
+        "ru": "Руководитель",
+        "fi": "Ohjaja",
+        "en": "Boss"
+    }
+    ,
+    "administrator": {
+        "ru": "Администратор",
+        "fi": "Ylläpitäjä",
+        "en": "Administrator"
+    }
+    ,
+    "kokki": {
+        "ru": "Повар",
+        "fi": "Kokki",
+        "en": "Cooker"
+    }
+    ,
+    "tarjoilija": {
+        "ru": "Официант",
+        "fi": "Tarjoilija",
+        "en": "Waiter"
+    }
+    ,
+    "addingUsers": {
+        "ru": "Добавление пользователей",
+        "fi": "Käyttäjien lisääminen",
+        "en": "Adding users"
+    },
+    "addingTables": {
+        "ru": "Добавление столиков",
+        "fi": "Pöytien lisääminen",
+        "en": "Adding tables"
+    },
+    "addingMenu": {
+        "ru": "Добавление меню",
+        "fi": "Valikkon lisääminen",
+        "en": "Adding menu"
+    },"close": {
+        "ru": "Закрыть",
+        "fi": "Sulkea",
+        "en": "Close"
+    }
+,
+    "savechanges": {
+        "ru": "Сохранить",
+        "fi": "Tallenna muutokset",
+        "en": "Save changes"
+    }
+,
+    "price": {
+        "ru": "Цена",
+        "fi": "Hinta",
+        "en": "Price"
+    },
+
+
+    "name": {
+        "ru": "Имя",
+        "fi": "Nimi",
+        "en": "Name"
+    }
+
+
+    
 }
