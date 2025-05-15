@@ -6,6 +6,8 @@ if (location.pathname === "/index.html") {
 else {
     var langfile = '../data/lang.json';
 }
+try{
+
 
 fetch(langfile)
     .then(response => response.json())
@@ -23,6 +25,8 @@ fetch(langfile)
         });
     });
 
+} catch (error) {
+}
 function updateLanguage(lang, langData) {
     document.querySelectorAll('[data-lang]').forEach(element => {
         const key = element.getAttribute('data-lang');
