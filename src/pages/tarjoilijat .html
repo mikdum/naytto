@@ -1,309 +1,609 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-lang="Naytto">Näyttö - Tarjoilijat</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../assets/css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        body {
-            font-family: 'Roboto', sans-serif;
-            background-color: #121212;
-            color: #fff;
-        }
-        .background-image {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url('../../../images/ravintola.jpg');
-            background-size: cover;
-            background-position: center;
-            z-index: -1;
-        }
-        .main {
-            position: relative;
-            min-height: 100vh;
-            z-index: 1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .wrapper {
-            position: relative;
-            z-index: 1;
-        }
-        .menu-card, #right-panel-adm {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 1rem;
-            text-align: center;
-            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-            border: 1px solid rgba(255, 255, 255, 0.18);
-        }
-        .right-card {
-            margin: 1rem;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 1rem;
-            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-            border: 1px solid rgba(255, 255, 255, 0.18);
-        }
-        #right-panel-adm {
-            width: 100%;
-            min-height: 70vh;
-        }
-        .main-content2 {
-            display: flex;
-            min-height: 70vh;
-            padding: 2rem;
-            margin-top: 4rem;
-            background-image: url('../../../images/ravintola.jpg');
-            min-width: 300px;
-        }
-        .list-group-item, .addUser, .description {
-            background: rgba(255, 255, 255, 0.1);
-        }
-        .addUser {
-            margin-left: 2rem;
-            background: rgba(255, 255, 255, 0.1);
-        }
-        .description {
-            margin: 1rem;
-        }
-        .groupelement {
-            margin: 1rem;
-            margin-top: 1rem;
-            border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            background: rgba(255, 255, 255, 0);
-            display: flex;
-        }
-        .main-container-adm {
-            min-height: 70vh;
-            display: flex;
-            flex-direction: column;
-        }
-        .table {
-            border-radius: 20px;
-        }
-        footer {
-            background-color: #1f1f1f;
-            color: #ddd;
-            padding: 2rem 0;
-        }
-        footer h5 {
-            margin-bottom: 1rem;
-        }
-        .btn-lang {
-            margin: 5px;
-        }
-        .table-grid {
-            background: transparent;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            justify-content: center;
-            padding: 1rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        .table-container {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 10px;
-            padding: 0.5rem;
-            box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
-            border: 1px solid rgba(255, 255, 255, 0.18);
-            flex: 0 0 auto;
-        }
-        .table-btn {
-            background: rgba(255, 255, 255, 0.2);
-            color: #fff;
-            border: none;
-            padding: 0.5rem 1rem;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-        .table-btn:hover {
-            background: rgba(255, 255, 255, 0.3);
-        }
-        @media (max-width: 480px) {
-            .menu-card {
-                display: none;
-            }
-        }
-        #myDIV {
-            width: 18rem;
-        }
-    </style>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"></script>
-    <script src="../assets/js/common.js" defer></script>
-    <script src="../assets/js/tarjoilijat.js" defer></script>
+<meta charset="UTF-8">
+<title>Modern Restaurant</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<style>
+body {
+  background: url('../../../images/ravintola.jpg') no-repeat center center fixed;
+  background-size: cover;
+  color: #fff;
+}
+.card {
+  background: rgba(255,255,255,0.25);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: none;
+  border-radius: 15px;
+}
+.modal-content {
+  background: rgba(255,255,255,0.3);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: none;
+  border-radius: 15px;
+}
+h1 {
+  color: #fff;
+  text-shadow: 1px 1px 2px #000;
+}
+.btn {
+  margin: 2px;
+}
+.dark-footer {
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: #fff;
+  padding-top: 2rem;
+  margin-top: 2rem;
+}
+.copyright {
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  font-size: 0.9rem;
+}
+</style>
 </head>
-
-<body class="dark-theme">
-    <div style="position: absolute; top: 20px; left: 20px; z-index: 1000;">
-        <button type="button" class="btn btn-lang btn_active" data-btn="fi">FI</button>
-        <button type="button" class="btn btn-lang" data-btn="en">EN</button>
-        <button type="button" class="btn btn-lang" data-btn="ru">RU</button>
+<body>
+<div class="d-flex justify-content-end p-3">
+  <select id="languageSelect" class="form-control w-auto">
+    <option value="EN">EN</option>
+    <option value="FI">FI</option>
+    <option value="RU">RU</option>
+  </select>
+</div>
+<div class="container">
+  <div class="text-center my-4">
+    <h1 id="appTitle">Restaurant Reservation System</h1>
+  </div>
+  <div class="row text-center">
+    <div class="col-sm-6 col-md-3 mb-3">
+      <div class="card">
+        <div class="card-body">
+          <h5 id="labelFree" class="card-title">Free tables</h5>
+          <h3 id="countFree">12</h3>
+        </div>
+      </div>
     </div>
-    <div class="wrapper">
-        <div class="main">
-            <div class="background-image"></div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12 d-flex flex-column align-items-center justify-content-start">
-                        <div id="tableGrid" class="table-grid"></div>
-                    </div>
-                </div>
-            </div>
+    <div class="col-sm-6 col-md-3 mb-3">
+      <div class="card">
+        <div class="card-body">
+          <h5 id="labelReserved" class="card-title">Reserved tables</h5>
+          <h3 id="countReserved">0</h3>
         </div>
-
-        <footer class="dark-footer">
-            <div class="container p-4">
-                <div class="row mt-4">
-                    <div class="col-lg-4 col-md-12 mb-4 mb-md-0">
-                        <h5 class="text-uppercase mb-4 text-light" data-lang="AboutCompanytitle"></h5>
-                        <p class="text-light" data-lang="AboutCompanyDescription"></p>
-                        <p class="text-light" data-lang="AboutCompanyDescription2"></p>
-                    </div>
-                    <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
-                        <ul class="fa-ul text-light" style="margin-left: 1.65em;">
-                            <li class="mb-3">
-                                <span class="fa-li"><i class="fas fa-home"></i></span>
-                                <span class="ms-2" data-lang="Kaupunki"></span>
-                            </li>
-                            <li class="mb-3">
-                                <span class="fa-li"><i class="fas fa-envelope"></i></span>
-                                <span class="ms-2">info@example.com</span>
-                            </li>
-                            <li class="mb-3">
-                                <span class="fa-li"><i class="fas fa-phone"></i></span>
-                                <span class="ms-2">+ 01 234 567 88</span>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
-                        <h5 class="text-uppercase mb-4 text-light" data-lang="Openinghours"></h5>
-                        <table class="table text-center text-light">
-                            <tbody class="font-weight-normal">
-                                <tr>
-                                    <td data-lang="Openinghours11"></td>
-                                    <td data-lang="Openinghours12"></td>
-                                </tr>
-                                <tr>
-                                    <td data-lang="Openinghours21"></td>
-                                    <td data-lang="Openinghours22"></td>
-                                </tr>
-                                <tr>
-                                    <td data-lang="Openinghours31"></td>
-                                    <td data-lang="Openinghours32"></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-            <div class="text-center p-3 copyright" data-lang="Copyright"></div>
-        </footer>
+      </div>
     </div>
-
-    <template id="orderModalTemplate">
-        <div class="modal fade" id="orderModal" tabindex="-1" role="dialog">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content dark-card">
-                    <div class="modal-header">
-                        <h5 class="modal-title" data-lang="UusiTilaus"></h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">×</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <form id="tableOrderForm">
-                            <div id="orderRows">
-                                <div class="order-row d-flex align-items-end mb-2">
-                                    <div class="flex-grow-1 mr-2">
-                                        <label data-lang="ValitseRuoka"></label>
-                                        <select class="form-control modalMenuItems"></select>
-                                    </div>
-                                    <div style="width: 90px;" class="mr-2">
-                                        <label data-lang="Maara"></label>
-                                        <input type="number" class="form-control modalOrderQuantity" min="1" value="1" required>
-                                    </div>
-                                    <button type="button" class="btn btn-danger btn-remove-row" style="height:38px;display:none;">X</button>
-                                </div>
-                            </div>
-                            <button type="button" class="btn btn-secondary mb-3" id="addOrderRow" data-lang="LisaaTuote"></button>
-                            <button type="submit" class="btn btn-success" data-lang="LahetaTilaus"></button>
-                        </form>
-                    </div>
-                </div>
-            </div>
+    <div class="col-sm-6 col-md-3 mb-3">
+      <div class="card">
+        <div class="card-body">
+          <h5 id="labelOccupied" class="card-title">Occupied tables</h5>
+          <h3 id="countOccupied">0</h3>
         </div>
-    </template>
-
-    <template id="reservationModalTemplate">
-        <div class="modal fade" id="reservationModal" tabindex="-1" role="dialog">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content dark-card">
-                    <div class="modal-header">
-                        <h5 class="modal-title" data-lang="PoydanVaraus"></h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">×</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <form id="tableReservationForm">
-                            <div class="form-group">
-                                <label data-lang="VieraidenMaara"></label>
-                                <input type="number" class="form-control" id="guestCount" min="1" value="1" required>
-                                <input type="hidden" id="tableNumber" name="tableNumber">
-                            </div>
-                            <button type="submit" class="btn btn-success" data-lang="Varaa"></button>
-                        </form>
-                    </div>
-                </div>
-            </div>
+      </div>
+    </div>
+    <div class="col-sm-6 col-md-3 mb-3">
+      <div class="card">
+        <div class="card-body">
+          <h5 id="labelTotalOrders" class="card-title">Total orders</h5>
+          <h3 id="countOrders">0</h3>
         </div>
-    </template>
-
-    <template id="tableContainerTemplate">
-        <div class="table-container">
-            <button class="table-btn"></button>
-            <div class="table-buttons"></div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
+      <div class="card text-center" data-table="1">
+        <div class="card-body">
+          <h5 class="card-title" id="table1Title">Table 1</h5>
+          <p class="card-text" id="table1Status">Free</p>
+          <button class="btn btn-primary reserve-btn" data-toggle="modal" data-target="#reserveModal" data-table="1" id="reserve1">Reserve</button>
+          <button class="btn btn-secondary release-btn" data-table="1" id="release1" disabled>Release</button>
+          <button class="btn btn-success order-btn" data-toggle="modal" data-target="#orderModal" data-table="1" id="order1" disabled>Order</button>
         </div>
-    </template>
-
-    <template id="orderRowTemplate">
-        <div class="order-row d-flex align-items-end mb-2">
-            <div class="flex-grow-1 mr-2">
-                <label data-lang="ValitseRuoka">Valitse ruoka</label>
-                <select class="form-control modalMenuItems"></select>
-            </div>
-            <div style="width: 90px;" class="mr-2">
-                <label data-lang="Maara">Määrä</label>
-                <input type="number" class="form-control modalOrderQuantity" min="1" value="1" required>
-            </div>
-            <button type="button" class="btn btn-danger btn-remove-row" style="height:38px;">X</button>
+      </div>
+    </div>
+    <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
+      <div class="card text-center" data-table="2">
+        <div class="card-body">
+          <h5 class="card-title" id="table2Title">Table 2</h5>
+          <p class="card-text" id="table2Status">Free</p>
+          <button class="btn btn-primary reserve-btn" data-toggle="modal" data-target="#reserveModal" data-table="2" id="reserve2">Reserve</button>
+          <button class="btn btn-secondary release-btn" data-table="2" id="release2" disabled>Release</button>
+          <button class="btn btn-success order-btn" data-toggle="modal" data-target="#orderModal" data-table="2" id="order2" disabled>Order</button>
         </div>
-    </template>
+      </div>
+    </div>
+    <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
+      <div class="card text-center" data-table="3">
+        <div class="card-body">
+          <h5 class="card-title" id="table3Title">Table 3</h5>
+          <p class="card-text" id="table3Status">Free</p>
+          <button class="btn btn-primary reserve-btn" data-toggle="modal" data-target="#reserveModal" data-table="3" id="reserve3">Reserve</button>
+          <button class="btn btn-secondary release-btn" data-table="3" id="release3" disabled>Release</button>
+          <button class="btn btn-success order-btn" data-toggle="modal" data-target="#orderModal" data-table="3" id="order3" disabled>Order</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
+      <div class="card text-center" data-table="4">
+        <div class="card-body">
+          <h5 class="card-title" id="table4Title">Table 4</h5>
+          <p class="card-text" id="table4Status">Free</p>
+          <button class="btn btn-primary reserve-btn" data-toggle="modal" data-target="#reserveModal" data-table="4" id="reserve4">Reserve</button>
+          <button class="btn btn-secondary release-btn" data-table="4" id="release4" disabled>Release</button>
+          <button class="btn btn-success order-btn" data-toggle="modal" data-target="#orderModal" data-table="4" id="order4" disabled>Order</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
+      <div class="card text-center" data-table="5">
+        <div class="card-body">
+          <h5 class="card-title" id="table5Title">Table 5</h5>
+          <p class="card-text" id="table5Status">Free</p>
+          <button class="btn btn-primary reserve-btn" data-toggle="modal" data-target="#reserveModal" data-table="5" id="reserve5">Reserve</button>
+          <button class="btn btn-secondary release-btn" data-table="5" id="release5" disabled>Release</button>
+          <button class="btn btn-success order-btn" data-toggle="modal" data-target="#orderModal" data-table="5" id="order5" disabled>Order</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
+      <div class="card text-center" data-table="6">
+        <div class="card-body">
+          <h5 class="card-title" id="table6Title">Table 6</h5>
+          <p class="card-text" id="table6Status">Free</p>
+          <button class="btn btn-primary reserve-btn" data-toggle="modal" data-target="#reserveModal" data-table="6" id="reserve6">Reserve</button>
+          <button class="btn btn-secondary release-btn" data-table="6" id="release6" disabled>Release</button>
+          <button class="btn btn-success order-btn" data-toggle="modal" data-target="#orderModal" data-table="6" id="order6" disabled>Order</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
+      <div class="card text-center" data-table="7">
+        <div class="card-body">
+          <h5 class="card-title" id="table7Title">Table 7</h5>
+          <p class="card-text" id="table7Status">Free</p>
+          <button class="btn btn-primary reserve-btn" data-toggle="modal" data-target="#reserveModal" data-table="7" id="reserve7">Reserve</button>
+          <button class="btn btn-secondary release-btn" data-table="7" id="release7" disabled>Release</button>
+          <button class="btn btn-success order-btn" data-toggle="modal" data-target="#orderModal" data-table="7" id="order7" disabled>Order</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
+      <div class="card text-center" data-table="8">
+        <div class="card-body">
+          <h5 class="card-title" id="table8Title">Table 8</h5>
+          <p class="card-text" id="table8Status">Free</p>
+          <button class="btn btn-primary reserve-btn" data-toggle="modal" data-target="#reserveModal" data-table="8" id="reserve8">Reserve</button>
+          <button class="btn btn-secondary release-btn" data-table="8" id="release8" disabled>Release</button>
+          <button class="btn btn-success order-btn" data-toggle="modal" data-target="#orderModal" data-table="8" id="order8" disabled>Order</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
+      <div class="card text-center" data-table="9">
+        <div class="card-body">
+          <h5 class="card-title" id="table9Title">Table 9</h5>
+          <p class="card-text" id="table9Status">Free</p>
+          <button class="btn btn-primary reserve-btn" data-toggle="modal" data-target="#reserveModal" data-table="9" id="reserve9">Reserve</button>
+          <button class="btn btn-secondary release-btn" data-table="9" id="release9" disabled>Release</button>
+          <button class="btn btn-success order-btn" data-toggle="modal" data-target="#orderModal" data-table="9" id="order9" disabled>Order</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
+      <div class="card text-center" data-table="10">
+        <div class="card-body">
+          <h5 class="card-title" id="table10Title">Table 10</h5>
+          <p class="card-text" id="table10Status">Free</p>
+          <button class="btn btn-primary reserve-btn" data-toggle="modal" data-target="#reserveModal" data-table="10" id="reserve10">Reserve</button>
+          <button class="btn btn-secondary release-btn" data-table="10" id="release10" disabled>Release</button>
+          <button class="btn btn-success order-btn" data-toggle="modal" data-target="#orderModal" data-table="10" id="order10" disabled>Order</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
+      <div class="card text-center" data-table="11">
+        <div class="card-body">
+          <h5 class="card-title" id="table11Title">Table 11</h5>
+          <p class="card-text" id="table11Status">Free</p>
+          <button class="btn btn-primary reserve-btn" data-toggle="modal" data-target="#reserveModal" data-table="11" id="reserve11">Reserve</button>
+          <button class="btn btn-secondary release-btn" data-table="11" id="release11" disabled>Release</button>
+          <button class="btn btn-success order-btn" data-toggle="modal" data-target="#orderModal" data-table="11" id="order11" disabled>Order</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
+      <div class="card text-center" data-table="12">
+        <div class="card-body">
+          <h5 class="card-title" id="table12Title">Table 12</h5>
+          <p class="card-text" id="table12Status">Free</p>
+          <button class="btn btn-primary reserve-btn" data-toggle="modal" data-target="#reserveModal" data-table="12" id="reserve12">Reserve</button>
+          <button class="btn btn-secondary release-btn" data-table="12" id="release12" disabled>Release</button>
+          <button class="btn btn-success order-btn" data-toggle="modal" data-target="#orderModal" data-table="12" id="order12" disabled>Order</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-    <div id="activeOrders" style="display:none"></div>
-    <div id="reservedTables" style="display:none"></div>
-    <span id="totalGuests" style="display:none"></span>
-    <span id="activeOrdersCount" style="display:none"></span>
-    <span id="todayOrders" style="display:none"></span>
+
+<div class="modal fade" id="reserveModal" tabindex="-1" role="dialog" aria-labelledby="reserveModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 id="reserveModalLabel" class="modal-title">Reserve Table</h5>
+        <button type="button" class="close" data-dismiss="modal">×</button>
+      </div>
+      <div class="modal-body">
+        <form id="reserveForm">
+          <div class="form-group">
+            <label for="guestName" id="nameLabel">Name</label>
+            <input type="text" id="guestName" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="partySize" id="partySizeLabel">Party size</label>
+            <input type="number" id="partySize" class="form-control" min="1">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" id="saveReserve" class="btn btn-primary">Reserve</button>
+        <button type="button" id="cancelReserve" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Order Modal -->
+<div class="modal fade" id="orderModal" tabindex="-1" role="dialog" aria-labelledby="orderModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 id="orderModalLabel" class="modal-title">Place Order</h5>
+        <button type="button" class="close" data-dismiss="modal">×</button>
+      </div>
+      <div class="modal-body">
+        <form id="orderForm">
+          <div class="form-group">
+            <label for="menuItem" id="menuLabel">Select item</label>
+            <select id="menuItem" class="form-control">
+              <option>Tea</option>
+              <option>Coffee</option>
+              <option>Latte</option>
+              <option>Cappuccino</option>
+              <option>Croissants</option>
+              <option>Donuts</option>
+              <option>Juice</option>
+              <option>Fries</option>
+              <option>Burger</option>
+              <option>Pizza</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="itemQuantity" id="quantityLabel">Quantity</label>
+            <input type="number" id="itemQuantity" class="form-control" min="1" value="1">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" id="placeOrder" class="btn btn-success">Order</button>
+        <button type="button" id="cancelOrder" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<footer class="dark-footer">
+  <div class="container p-4">
+    <div class="row mt-4">
+      <div class="col-lg-4 col-md-12 mb-4 mb-md-0">
+        <h5 class="text-uppercase mb-4 text-light" data-lang="AboutCompanytitle">About Us</h5>
+        <p class="text-light" data-lang="AboutCompanyDescription">We are a modern restaurant offering a delightful dining experience.</p>
+        <p class="text-light" data-lang="AboutCompanyDescription2">Visit us for a taste of our exquisite cuisine and warm hospitality.</p>
+      </div>
+      <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+        <ul class="fa-ul text-light" style="margin-left: 1.65em;">
+          <li class="mb-3">
+            <span class="fa-li"><i class="fas fa-home"></i></span>
+            <span class="ms-2" data-lang="Kaupunki">123 Main Street, City</span>
+          </li>
+          <li class="mb-3">
+            <span class="fa-li"><i class="fas fa-envelope"></i></span>
+            <span class="ms-2">info@example.com</span>
+          </li>
+          <li class="mb-3">
+            <span class="fa-li"><i class="fas fa-phone"></i></span>
+            <span class="ms-2">+01 234 567 88</span>
+          </li>
+        </ul>
+      </div>
+      <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+        <h5 class="text-uppercase mb-4 text-light" data-lang="Openinghours">Opening Hours</h5>
+        <table class="table text-center text-light">
+          <tbody class="font-weight-normal">
+            <tr>
+              <td data-lang="Openinghours11">Mon - Fri:</td>
+              <td data-lang="Openinghours12">8am - 10pm</td>
+            </tr>
+            <tr>
+              <td data-lang="Openinghours21">Saturday:</td>
+              <td data-lang="Openinghours22">10am - 11pm</td>
+            </tr>
+            <tr>
+              <td data-lang="Openinghours31">Sunday:</td>
+              <td data-lang="Openinghours32">12pm - 8pm</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="text-center p-3 copyright" data-lang="Copyright">© 2025 Modern Restaurant. All rights reserved.</div>
+</footer>
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script>
+
+var translations = {
+  "EN": {
+    tableLabel: "Table",
+    reserve: "Reserve",
+    release: "Release",
+    order: "Order",
+    free: "Free",
+    reservedBy: "Reserved by",
+    occupiedBy: "Occupied by",
+    name: "Name",
+    partySize: "Party size",
+    selectItem: "Select item",
+    quantity: "Quantity",
+    cancel: "Cancel",
+    freeTables: "Free tables",
+    reservedTables: "Reserved tables",
+    occupiedTables: "Occupied tables",
+    totalOrders: "Total orders",
+    modalReserveTitle: "Reserve Table",
+    modalOrderTitle: "Place Order",
+    AboutCompanytitle: "About Us",
+    AboutCompanyDescription: "We are a modern restaurant offering a delightful dining experience.",
+    AboutCompanyDescription2: "Visit us for a taste of our exquisite cuisine and warm hospitality.",
+    Kaupunki: "123 Main Street, City",
+    Openinghours: "Opening Hours",
+    Openinghours11: "Mon - Fri:",
+    Openinghours12: "8am - 10pm",
+    Openinghours21: "Saturday:",
+    Openinghours22: "10am - 11pm",
+    Openinghours31: "Sunday:",
+    Openinghours32: "12pm - 8pm",
+    Copyright: "© 2025 Modern Restaurant. All rights reserved."
+  },
+  "FI": {
+    tableLabel: "Pöytä",
+    reserve: "Varaa",
+    release: "Vapauta",
+    order: "Tee tilaus",
+    free: "Vapaa",
+    reservedBy: "Varattu",
+    occupiedBy: "Käytössä",
+    name: "Nimi",
+    partySize: "Henkilömäärä",
+    selectItem: "Valitse tuote",
+    quantity: "Määrä",
+    cancel: "Peruuta",
+    freeTables: "Vapaat pöydät",
+    reservedTables: "Varatut pöydät",
+    occupiedTables: "Käytössä olevat pöydät",
+    totalOrders: "Tilaukset yhteensä",
+    modalReserveTitle: "Varaa pöytä",
+    modalOrderTitle: "Tee tilaus",
+    AboutCompanytitle: "Meistä",
+    AboutCompanyDescription: "Olemme moderni ravintola, joka tarjoaa ihastuttavan ruokailukokemuksen.",
+    AboutCompanyDescription2: "Tule nauttimaan herkullisista ruoistamme ja lämpimästä vieraanvaraisuudestamme.",
+    Kaupunki: "Pääkatu 123, Kaupunki",
+    Openinghours: "Aukioloajat",
+    Openinghours11: "Ma - Pe:",
+    Openinghours12: "8.00 - 22.00",
+    Openinghours21: "Lauantai:",
+    Openinghours22: "10.00 - 23.00",
+    Openinghours31: "Sunnuntai:",
+    Openinghours32: "12.00 - 20.00",
+    Copyright: "© 2025 Moderni Ravintola. Kaikki oikeudet pidätetään."
+  },
+  "RU": {
+    tableLabel: "Стол",
+    reserve: "Забронировать",
+    release: "Освободить",
+    order: "Заказать",
+    free: "Свободно",
+    reservedBy: "Забронировано",
+    occupiedBy: "Занято",
+    name: "Имя",
+    partySize: "Гостей",
+    selectItem: "Выберите блюдо",
+    quantity: "Количество",
+    cancel: "Отмена",
+    freeTables: "Свободных столов",
+    reservedTables: "Зарезервированных столов",
+    occupiedTables: "Занятых столов",
+    totalOrders: "Всего заказов",
+    modalReserveTitle: "Забронировать стол",
+    modalOrderTitle: "Сделать заказ",
+    AboutCompanytitle: "О нас",
+    AboutCompanyDescription: "Мы современный ресторан, предлагающий восхитительный гастрономический опыт.",
+    AboutCompanyDescription2: "Посетите нас, чтобы насладиться нашей изысканной кухней и теплым гостеприимством.",
+    Kaupunki: "Главная улица, 123, Город",
+    Openinghours: "Часы работы",
+    Openinghours11: "Пн - Пт:",
+    Openinghours12: "8:00 - 22:00",
+    Openinghours21: "Суббота:",
+    Openinghours22: "10:00 - 23:00",
+    Openinghours31: "Воскресенье:",
+    Openinghours32: "12:00 - 20:00",
+    Copyright: "© 2025 Современный Ресторан. Все права защищены."
+  }
+};
+
+var tablesData = {};
+var currentTable = null;
+var currentLang = "EN";
+
+for (var i = 1; i <= 12; i++) {
+  tablesData[i] = { reserved: false, name: "", party: 0, orders: 0 };
+}
+
+
+function updateStats() {
+  var freeCount = 0, reservedCount = 0, occupiedCount = 0, totalOrders = 0;
+  for (var i = 1; i <= 12; i++) {
+    var t = tablesData[i];
+    if (!t.reserved && t.orders === 0) freeCount++;
+    if (t.reserved && t.orders === 0) reservedCount++;
+    if (t.orders > 0) occupiedCount++;
+    totalOrders += t.orders;
+  }
+  document.getElementById("countFree").textContent = freeCount;
+  document.getElementById("countReserved").textContent = reservedCount;
+  document.getElementById("countOccupied").textContent = occupiedCount;
+  document.getElementById("countOrders").textContent = totalOrders;
+}
+
+
+function updateCard(i) {
+  var t = tablesData[i];
+  var statusElem = document.getElementById("table" + i + "Status");
+  var reserveBtn = document.getElementById("reserve" + i);
+  var releaseBtn = document.getElementById("release" + i);
+  var orderBtn = document.getElementById("order" + i);
+  if (t.reserved && t.orders === 0) {
+    statusElem.textContent = translations[currentLang].reservedBy + " " + t.name;
+    reserveBtn.disabled = true;
+    releaseBtn.disabled = false;
+    orderBtn.disabled = false;
+  } else if (t.orders > 0) {
+    statusElem.textContent = translations[currentLang].occupiedBy + " " + t.name;
+    reserveBtn.disabled = true;
+    releaseBtn.disabled = false;
+    orderBtn.disabled = false;
+  } else {
+    statusElem.textContent = translations[currentLang].free;
+    reserveBtn.disabled = false;
+    releaseBtn.disabled = true;
+    orderBtn.disabled = true;
+  }
+}
+
+
+document.querySelectorAll(".reserve-btn").forEach(function(btn) {
+  btn.addEventListener("click", function() {
+    currentTable = this.getAttribute("data-table");
+  });
+});
+
+
+document.getElementById("saveReserve").addEventListener("click", function() {
+  var name = document.getElementById("guestName").value;
+  var party = parseInt(document.getElementById("partySize").value);
+  if (!name || party < 1) {
+    alert("Please enter a name and party size.");
+    return;
+  }
+  tablesData[currentTable].reserved = true;
+  tablesData[currentTable].name = name;
+  tablesData[currentTable].party = party;
+  updateCard(currentTable);
+  updateStats();
+  $('#reserveModal').modal('hide');
+});
+
+
+document.querySelectorAll(".order-btn").forEach(function(btn) {
+  btn.addEventListener("click", function() {
+    currentTable = this.getAttribute("data-table");
+  });
+});
+
+
+document.getElementById("placeOrder").addEventListener("click", function() {
+  var qty = parseInt(document.getElementById("itemQuantity").value);
+  if (qty < 1) {
+    alert("Invalid quantity.");
+    return;
+  }
+  tablesData[currentTable].orders += qty;
+  updateCard(currentTable);
+  updateStats();
+  $('#orderModal').modal('hide');
+});
+
+
+document.querySelectorAll(".release-btn").forEach(function(btn) {
+  btn.addEventListener("click", function() {
+    var i = this.getAttribute("data-table");
+    tablesData[i] = { reserved: false, name: "", party: 0, orders: 0 };
+    updateCard(i);
+    updateStats();
+  });
+});
+
+
+function updateLanguage(lang) {
+  currentLang = lang;
+  
+  for (var i = 1; i <= 12; i++) {
+    document.getElementById("table" + i + "Title").textContent = translations[lang].tableLabel + " " + i;
+    updateCard(i);
+  }
+  
+  document.querySelectorAll(".reserve-btn").forEach(function(btn) {
+    btn.textContent = translations[lang].reserve;
+  });
+  document.querySelectorAll(".release-btn").forEach(function(btn) {
+    btn.textContent = translations[lang].release;
+  });
+  document.querySelectorAll(".order-btn").forEach(function(btn) {
+    btn.textContent = translations[lang].order;
+  });
+  
+  document.getElementById("labelFree").textContent = translations[lang].freeTables;
+  document.getElementById("labelReserved").textContent = translations[lang].reservedTables;
+  document.getElementById("labelOccupied").textContent = translations[lang].occupiedTables;
+  document.getElementById("labelTotalOrders").textContent = translations[lang].totalOrders;
+  
+  document.getElementById("reserveModalLabel").textContent = translations[lang].modalReserveTitle;
+  document.getElementById("nameLabel").textContent = translations[lang].name;
+  document.getElementById("partySizeLabel").textContent = translations[lang].partySize;
+  document.getElementById("saveReserve").textContent = translations[lang].reserve;
+  document.getElementById("cancelReserve").textContent = translations[lang].cancel;
+  document.getElementById("orderModalLabel").textContent = translations[lang].modalOrderTitle;
+  document.getElementById("menuLabel").textContent = translations[lang].selectItem;
+  document.getElementById("quantityLabel").textContent = translations[lang].quantity;
+  document.getElementById("placeOrder").textContent = translations[lang].order;
+  document.getElementById("cancelOrder").textContent = translations[lang].cancel;
+  
+  document.querySelectorAll('[data-lang]').forEach(function(elem) {
+    var key = elem.getAttribute('data-lang');
+    if (translations[lang][key]) {
+      elem.textContent = translations[lang][key];
+    }
+  });
+}
+
+
+document.getElementById("languageSelect").addEventListener("change", function() {
+  updateLanguage(this.value);
+});
+
+
+updateLanguage('EN');
+updateStats();
+</script>
 </body>
-
 </html>
