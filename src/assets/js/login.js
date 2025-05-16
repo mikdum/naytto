@@ -47,17 +47,17 @@ function checkPinCode() {
     console.log(pinCode);
     console.log(currentUser);
     if (currentUser.length > 0 && currentUser[0].role === "kokki") {
-        window.location.href = 'src/pages/kokit.html';
+        window.location.href = '../../src/pages/kokit.html';
     }
 
     else if (currentUser.length > 0 && currentUser[0].role === "tarjoilija") {
-        window.location.href = 'src/pages/tarjoilijat.html';
+        window.location.href = '../../src/pages/tarjoilijat.html';
     }
     else if (currentUser.length > 0 && currentUser[0].role === "administrator") {
-        window.location.href = 'src/pages/adminstrators.html';
+        window.location.href = '../../src/pages/adminstrators.html';
     }
     else if (currentUser.length > 0 && currentUser[0].role === "boss") {
-        window.location.href = 'src/pages/ohjaaja.html';
+        window.location.href = '../../src/pages/ohjaaja.html';
     }
 
     else {
