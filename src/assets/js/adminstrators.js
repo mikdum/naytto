@@ -280,7 +280,7 @@ function createMenuTables() {
     value.items.forEach(element => {
       let $tr = createTrMenu(element.ru, element.fi, element.en, element.price);
       $tdDelete = document.createElement('td');
-      $tdDelete.innerHTML = `<a class='btn btn-light' href='#' onclick=deleteRow(this.parentNode.parentNode,"menuTable${key}") ><img src='/images/crest.png' style="width: 20px; height: 20px;"></a>`;
+      $tdDelete.innerHTML = `<a class='btn btn-light' href='#' onclick=deleteRow(this.parentNode.parentNode,"menuTable${key}") ><img src='../../images/crest.png' style="width: 20px; height: 20px;"></a>`;
       $tr.append($tdDelete);
 
       $tbody.append($tr);
