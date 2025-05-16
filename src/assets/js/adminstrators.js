@@ -111,7 +111,7 @@ function createTable() {
   tables.forEach(element => {
     let $tr = createTrMenu(element.name.ru, element.name.fi, element.name.en, element.type);
     $tdDelete = document.createElement('td');
-    $tdDelete.innerHTML = `<a class='btn btn-light' href='#' onclick=deleteRow(this.parentNode.parentNode,"PydatTable") ><img src='/images/crest.png' style="width: 20px; height: 20px;"></a>`;
+    $tdDelete.innerHTML = `<a class='btn btn-light' href='#' onclick=deleteRow(this.parentNode.parentNode,"PydatTable") ><img src='../../images/crest.png' style="width: 20px; height: 20px;"></a>`;
     $tr.append($tdDelete);
 
     $tbody.append($tr);
@@ -174,7 +174,7 @@ function createUserTable() {
     $tdRole.setAttribute("data-lang", element.role);
     $tdPin.textContent = element.pin;
 
-    $tdDelete.innerHTML = `<a class='btn btn-light' href='#' onclick=deleteRow(this.parentNode.parentNode,"usersTable") ><img src='/images/crest.png' style="width: 20px; height: 20px;"></a>`;
+    $tdDelete.innerHTML = `<a class='btn btn-light' href='#' onclick=deleteRow(this.parentNode.parentNode,"usersTable") ><img src='../../images/crest.png' style="width: 20px; height: 20px;"></a>`;
     $tr.append($tdName);
     $tr.append($tdRole);
     $tr.append($tdPin);
@@ -257,7 +257,7 @@ function createMenuTables() {
   
 
     $tdDelete = document.createElement('div');
-    $tdDelete.innerHTML = `<a class='btn btn-light mt-2' href='#' onclick=deletecurrentPartion("${value.en}") ><img src='/images/crest.png' style="width: 20px; height: 20px;"></a>`;
+    $tdDelete.innerHTML = `<a class='btn btn-light mt-2' href='#' onclick=deletecurrentPartion("${value.en}") ><img src='../../images/crest.png' style="width: 20px; height: 20px;"></a>`;
     $currentItem.append($tdDelete);
   
 
@@ -514,7 +514,7 @@ function createModalMenu() {
 function addRowMenu(){
   let $tr = createTrEpty();
   $tdDelete = document.createElement('td');
-  $tdDelete.innerHTML = `<a class='btn btn-light' href='#' onclick=deleteRow(this.parentNode.parentNode,"menuTableAdding") ><img src='/images/crest.png' style="width: 20px; height: 20px;"></a>`;
+  $tdDelete.innerHTML = `<a class='btn btn-light' href='#' onclick=deleteRow(this.parentNode.parentNode,"menuTableAdding") ><img src='../../images/crest.png' style="width: 20px; height: 20px;"></a>`;
   $tr.append($tdDelete);
  return $tr;
 }
