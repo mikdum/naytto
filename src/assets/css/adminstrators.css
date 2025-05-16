@@ -22,7 +22,7 @@
 }
 .main-content2{
     display: flex;
-    min-height:70vh;
+    min-height:50vh;
     padding: 2rem;
     margin-top: 4rem;
 }
