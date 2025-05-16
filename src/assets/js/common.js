@@ -1,5 +1,15 @@
 let currentLang = localStorage.getItem('language') || "fi";
 
+document.querySelectorAll('.btn-lang').forEach(btn => {
+    if (currentLang === btn.dataset.btn) {
+        btn.classList.add('btn_active');
+    }
+    else {
+        btn.classList.remove('btn_active');
+    }
+
+})
+
 if (location.pathname === "/naytto/") {
     var langfile = '/naytto/src/data/lang.json';
 }
@@ -9,24 +19,24 @@ else if (location.pathname === "/index.html") {
 else {
     var langfile = '../data/lang.json';
 }
-try{
+try {
 
 
-fetch(langfile)
-    .then(response => response.json())
-    .then(langData => {
-        updateLanguage(currentLang, langData);
+    fetch(langfile)
+        .then(response => response.json())
+        .then(langData => {
+            updateLanguage(currentLang, langData);
 
-        document.querySelectorAll('.btn-lang').forEach(button => {
-            button.addEventListener('click', () => {
-                currentLang = button.dataset.btn;
-                localStorage.setItem('language', currentLang);
-                document.querySelectorAll('.btn-lang').forEach(btn => btn.classList.remove('btn_active'));
-                button.classList.add('btn_active');
-                updateLanguage(currentLang, langData);
+            document.querySelectorAll('.btn-lang').forEach(button => {
+                button.addEventListener('click', () => {
+                    currentLang = button.dataset.btn;
+                    localStorage.setItem('language', currentLang);
+                    document.querySelectorAll('.btn-lang').forEach(btn => btn.classList.remove('btn_active'));
+                    button.classList.add('btn_active');
+                    updateLanguage(currentLang, langData);
+                });
             });
         });
-    });
 
 } catch (error) {
 }
