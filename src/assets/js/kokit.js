@@ -1,5 +1,7 @@
-document.addEventListener('DOMContentLoaded', () => {
+var menu = {};
 
+document.addEventListener('DOMContentLoaded', () => {
+    loadMenuItems();
     loadOrders();
     setInterval(loadOrders, 5000);
 });
@@ -31,16 +33,11 @@ function createOrderElement(order) {
     
     if (order.products) {
         productsHtml = order.products.map(p => {
-            const menuItems = JSON.parse(localStorage.getItem('menuItems')) || [];
-            const menuItem = menuItems.find(item => item.id == p.menuItemId);
-         //   const itemName = menuItem ? (menuItem[lang] || menuItem.name || menuItem.fi || 'Tuote') : 'Tuote';
-            return `Tuote x ${p.quantity}`;
+            const Tuote=getmenuItem(Object.keys(p)[0]);
+              return `${Tuote} x ${p[Object.keys(p)[0]]}`;
         }).join('<br>');
     } else {
-        const menuItems = JSON.parse(localStorage.getItem('menuItems')) || [];
-        const menuItem = menuItems.find(item => item.id == order.menuItemId);
-      //  const itemName = menuItem ? (menuItem[lang] || menuItem.name || menuItem.fi || 'Tuote') : 'Tuote';
-        productsHtml = `Tuote x ${order.quantity}`;
+         productsHtml = `Tuote x ${order.quantity}`;
     }
     
     const orderDiv = div.querySelector('.order-item');
@@ -89,3 +86,41 @@ function clearCache() {
 
   
   }
+
+  function loadMenuItems() {
+
+    nayttoMenu = localStorage.getItem("nayttoMenu");
+    if (nayttoMenu != null) {
+        menu = JSON.parse(nayttoMenu);
+        
+    }
+    else {
+        var langfile = '../data/menu.json';
+        fetch(langfile)
+        .then(response => response.json())
+        .then(langData => {
+            menu = langData;
+        });
+  
+    }
+}
+
+
+function getmenuItem(currentTuote){
+  let Tuote="Tuote not defined";
+     for (const [key, value] of Object.entries(menu)) {
+     value.items.forEach(element => {
+
+        if (element.en===currentTuote){
+            Tuote =element[currentLang];
+            return ;
+
+        }
+
+          });
+
+    }
+    return Tuote;
+
+  
+}

@@ -150,13 +150,12 @@ function setupEventListeners() {
             const products = [];
             orderRows.forEach(row => {
                 const menuItemId = row.querySelector('.modalMenuItems').value;
-                console.log(menuItemId);
                 const quantity = row.querySelector('.modalOrderQuantity').value;
-
-                products.push({menuItemId:parseInt(quantity)});
-
-             });
-
+                
+                products.push({[menuItemId]:parseInt(quantity)});
+                
+            });
+            
             if (products.length > 0) {
                 orders.push({
                     id: Date.now(),
@@ -212,22 +211,7 @@ function loadMenuItems() {
   
     }
 }
-function parseMenu(){
-    const select = document.querySelector('.modalMenuItems');
-  
-     for (const [key, value] of Object.entries(menu)) {
 
-     value.items.forEach(element => {
-        const option = document.createElement('option');
-        option.value = element.en;
-        option.textContent = element[currentLang];
-        select.appendChild(option);
-          });
-
-    }
-
-  
-}
 
 function handleTableReservation(event) {
     event.preventDefault();
@@ -319,6 +303,11 @@ function getStatusText(status) {
 }
 
 function loadActiveOrders() {
+    nayttoMenu = localStorage.getItem("nayttoMenu");
+    if (nayttoMenu != null) {
+        menu = JSON.parse(nayttoMenu);
+        
+    }
     const orders = JSON.parse(localStorage.getItem('activeOrders'));
     const container = document.getElementById('activeOrders');
     container.innerHTML = '';
@@ -327,10 +316,19 @@ function loadActiveOrders() {
         orderElement.className = 'order-item';
         let productsHtml = '';
         if (order.products) {
-            productsHtml = order.products.map(p => `${p.menuItemName} x ${p.quantity}`).join('<br>');
+            productsHtml = order.products.map(p =>
+                { 
+                    console.log(Object.keys(p))
+                    const Tuote=getmenuItem(Object.keys(p)[0]);
+                    console.log(Tuote)
+
+                  return `${Tuote} x ${p[Object.keys(p)[0]]}`;
+
+            }).join('<br>');
         } else {
-            productsHtml = `${order.menuItemName} x ${order.quantity}`;
+            productsHtml = `Error`;
         }
+        console.log("productsHtml",productsHtml)
         orderElement.innerHTML = `
             <div class="order-header">
                 <span>Pöytä ${order.tableNumber}</span>
@@ -523,7 +521,6 @@ function fillOrderRowSelects() {
     document.querySelectorAll('.modalMenuItems').forEach(select => {
         if (select.children.length==0){
 
-
         for (const [key, value] of Object.entries(menu)) {
 
             value.items.forEach(element => {
@@ -570,3 +567,26 @@ function clearCache() {
 
   
   }
+
+
+  
+function getmenuItem(currentTuote){
+    let Tuote="Tuote not defined";
+    console.log ("menu",menu);
+       for (const [key, value] of Object.entries(menu)) {
+       value.items.forEach(element => {
+  
+          if (element.en===currentTuote){
+              Tuote =element[currentLang];
+              return ;
+  
+          }
+  
+            });
+  
+      }
+      return Tuote;
+  
+    
+  }
+  
