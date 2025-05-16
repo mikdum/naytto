@@ -1,6 +1,9 @@
 let currentLang = localStorage.getItem('language') || "fi";
 
-if (location.pathname === "/index.html") {
+if (location.pathname === "/naytto/") {
+    var langfile = '/naytto/src/data/lang.json';
+}
+else if (location.pathname === "/index.html") {
     var langfile = '/src/data/lang.json';
 }
 else {
