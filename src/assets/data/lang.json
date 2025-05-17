@@ -1,0 +1,238 @@
+{
+    "fi": {
+        "nav": {
+            "home": "Papuposti",
+            "delivery": "Kotiinkuljetus",
+            "stats": "Tilastot",
+            "settings": "Asetukset"
+        },
+        "orders": {
+            "active": "Aktiiviset tilaukset",
+            "history": "Tilaushistoria",
+            "new": "Tee uusi tilaus",
+            "noActive": "Ei aktiivisia tilauksia",
+            "orderNumber": "Tilaus nro",
+            "date": "Päivämäärä",
+            "total": "Summa",
+            "status": "Tila",
+            "completed": "Valmis",
+            "active": "Aktiivinen"
+        },
+        "stats": {
+            "title": "Tilastot",
+            "totalOrders": "Tilaukset yhteensä",
+            "deliveries": "Toimitukset",
+            "totalSpent": "Kulutettu yhteensä"
+        },
+        "favorites": {
+            "title": "Suosituimmat tuotteet"
+        },
+        "profile": {
+            "title": "Profiili",
+            "name": "Nimi",
+            "email": "Sähköposti",
+            "phone": "Puhelin",
+            "address": "Osoite",
+            "save": "Tallenna",
+            "cancel": "Peruuta"
+        },
+        "delivery": {
+            "active": "Aktiiviset kuljetukset",
+            "completed": "Valmistuneet kuljetukset",
+            "revenue": "Tulot tänään",
+            "all": "Kaikki",
+            "active": "Aktiiviset",
+            "completed": "Valmistuneet",
+            "customer": "Asiakas",
+            "address": "Osoite",
+            "orderTime": "Tilausaika",
+            "status": "Tila",
+            "details": "Kuljetuksen tiedot",
+            "close": "Sulje"
+        },
+        "menu": {
+            "title": "Tuotteet",
+            "categories": {
+                "drinks": "Juomat",
+                "pastries": "Leivonnaiset",
+                "packages": "Paketit"
+            },
+            "items": [
+                {
+                    "id": 1,
+                    "name": "Kahvi",
+                    "price": 3.50,
+                    "category": "drinks",
+                    "description": "Tuore paahtoinen kahvi"
+                },
+                {
+                    "id": 2,
+                    "name": "Latte",
+                    "price": 4.90,
+                    "category": "drinks",
+                    "description": "Espresso ja höyrytetty maito"
+                },
+                {
+                    "id": 3,
+                    "name": "Cappuccino",
+                    "price": 4.50,
+                    "category": "drinks",
+                    "description": "Espresso, höyrytetty maito ja maitovaahto"
+                },
+                {
+                    "id": 4,
+                    "name": "Korvapuusti",
+                    "price": 3.90,
+                    "category": "pastries",
+                    "description": "Tuore korvapuusti"
+                },
+                {
+                    "id": 5,
+                    "name": "Pulla",
+                    "price": 3.50,
+                    "category": "pastries",
+                    "description": "Tuore pulla"
+                },
+                {
+                    "id": 6,
+                    "name": "Korvapuustikahvi",
+                    "price": 6.90,
+                    "category": "packages",
+                    "description": "Kahvi ja korvapuusti"
+                },
+                {
+                    "id": 7,
+                    "name": "Päivän leivos",
+                    "price": 4.90,
+                    "category": "pastries",
+                    "description": "Päivän erikoisleivos"
+                },
+                {
+                    "id": 8,
+                    "name": "Tea",
+                    "price": 3.50,
+                    "category": "drinks",
+                    "description": "Tuore tee"
+                }
+            ]
+        }
+    },
+    "en": {
+        "nav": {
+            "home": "Bean Mail",
+            "delivery": "Delivery",
+            "stats": "Statistics",
+            "settings": "Settings"
+        },
+        "orders": {
+            "active": "Active Orders",
+            "history": "Order History",
+            "new": "New Order",
+            "noActive": "No active orders",
+            "orderNumber": "Order No",
+            "date": "Date",
+            "total": "Total",
+            "status": "Status",
+            "completed": "Completed",
+            "active": "Active"
+        },
+        "stats": {
+            "title": "Statistics",
+            "totalOrders": "Total Orders",
+            "deliveries": "Deliveries",
+            "totalSpent": "Total Spent"
+        },
+        "favorites": {
+            "title": "Popular Items"
+        },
+        "profile": {
+            "title": "Profile",
+            "name": "Name",
+            "email": "Email",
+            "phone": "Phone",
+            "address": "Address",
+            "save": "Save",
+            "cancel": "Cancel"
+        },
+        "delivery": {
+            "active": "Active Deliveries",
+            "completed": "Completed Deliveries",
+            "revenue": "Today's Revenue",
+            "all": "All",
+            "active": "Active",
+            "completed": "Completed",
+            "customer": "Customer",
+            "address": "Address",
+            "orderTime": "Order Time",
+            "status": "Status",
+            "details": "Delivery Details",
+            "close": "Close"
+        },
+        "menu": {
+            "title": "Products",
+            "categories": {
+                "drinks": "Drinks",
+                "pastries": "Pastries",
+                "packages": "Packages"
+            },
+            "items": [
+                {
+                    "id": 1,
+                    "name": "Coffee",
+                    "price": 3.50,
+                    "category": "drinks",
+                    "description": "Fresh roasted coffee"
+                },
+                {
+                    "id": 2,
+                    "name": "Latte",
+                    "price": 4.90,
+                    "category": "drinks",
+                    "description": "Espresso and steamed milk"
+                },
+                {
+                    "id": 3,
+                    "name": "Cappuccino",
+                    "price": 4.50,
+                    "category": "drinks",
+                    "description": "Espresso, steamed milk and milk foam"
+                },
+                {
+                    "id": 4,
+                    "name": "Cinnamon Roll",
+                    "price": 3.90,
+                    "category": "pastries",
+                    "description": "Fresh cinnamon roll"
+                },
+                {
+                    "id": 5,
+                    "name": "Sweet Bun",
+                    "price": 3.50,
+                    "category": "pastries",
+                    "description": "Fresh sweet bun"
+                },
+                {
+                    "id": 6,
+                    "name": "Coffee & Cinnamon Roll",
+                    "price": 6.90,
+                    "category": "packages",
+                    "description": "Coffee and cinnamon roll"
+                },
+                {
+                    "id": 7,
+                    "name": "Daily Pastry",
+                    "price": 4.90,
+                    "category": "pastries",
+                    "description": "Today's special pastry"
+                },
+                {
+                    "id": 8,
+                    "name": "Tea",
+                    "price": 3.50,
+                    "category": "drinks",
+                    "description": "Fresh tea"
+                }
+            ]
+        }
+    }
+} 

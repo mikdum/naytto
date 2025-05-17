@@ -1,0 +1,197 @@
+:root {
+    --primary-color: #0d6efd;
+    --primary-hover: #0b5ed7;
+    --text-color: #495057;
+    --border-color: rgba(0,0,0,0.1);
+    --shadow-sm: 0 2px 4px rgba(0,0,0,0.1);
+    --shadow-md: 0 4px 8px rgba(0,0,0,0.2);
+    --shadow-lg: 0 4px 12px rgba(0,0,0,0.15);
+    --border-radius-sm: 10px;
+    --border-radius-md: 15px;
+    --transition-speed: 0.2s;
+}
+
+.deliveryCard {
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+    border: none;
+    border-radius: var(--border-radius-sm);
+    box-shadow: var(--shadow-sm);
+}
+
+.deliveryCard:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+}
+
+.deliveryCard__body {
+    padding: 1.5rem;
+}
+
+.table {
+    margin-bottom: 0;
+}
+
+.table th {
+    border-top: none;
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+.table td {
+    vertical-align: middle;
+}
+
+.table-hover tbody tr:hover {
+    background-color: rgba(13, 110, 253, 0.05);
+}
+
+.table-responsive {
+    border-radius: var(--border-radius-sm);
+    overflow: hidden;
+}
+
+.filterButtons {
+    display: flex;
+    gap: 0.25rem;
+}
+
+.filterButtons__button {
+    border-radius: 20px;
+    margin: 0 2px;
+    transition: all var(--transition-speed);
+}
+
+.filterButtons__button:hover {
+    transform: translateY(-1px);
+}
+
+.filterButtons__button--active {
+    background-color: var(--primary-color);
+    color: white;
+    box-shadow: 0 2px 4px rgba(13, 110, 253, 0.3);
+}
+
+.btn {
+    transition: all var(--transition-speed);
+}
+
+.btn:hover {
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-sm);
+}
+
+.mainNav {
+    box-shadow: var(--shadow-sm);
+}
+
+.mainNav__brand {
+    font-weight: 600;
+}
+
+.deliveryCard__header {
+    border-bottom: 1px solid var(--border-color);
+    padding: 1rem 1.5rem;
+    background-color: white;
+}
+
+.modal-content {
+    border-radius: var(--border-radius-md);
+    border: none;
+    box-shadow: var(--shadow-lg);
+}
+
+.modal-header {
+    border-bottom: 1px solid var(--border-color);
+    background-color: #f8f9fa;
+    border-radius: var(--border-radius-md) var(--border-radius-md) 0 0;
+}
+
+.modal-footer {
+    border-top: 1px solid var(--border-color);
+    background-color: #f8f9fa;
+    border-radius: 0 0 var(--border-radius-md) var(--border-radius-md);
+}
+
+.toast {
+    background-color: white;
+    border: none;
+    box-shadow: var(--shadow-lg);
+    border-radius: var(--border-radius-sm);
+}
+
+.toast-header {
+    background-color: #f8f9fa;
+    border-bottom: 1px solid var(--border-color);
+    border-radius: var(--border-radius-sm) var(--border-radius-sm) 0 0;
+}
+
+.badge {
+    padding: 0.5em 0.8em;
+    font-weight: 500;
+}
+
+.delivery__details {
+    padding: 1rem;
+}
+
+.delivery__details-title {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+}
+
+.delivery__details-text {
+    margin-bottom: 0.5rem;
+}
+
+.delivery__details-list {
+    padding-left: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.delivery__details-hr {
+    margin: 1rem 0;
+}
+
+@media (max-width: 768px) {
+    .deliveryCard__body {
+        padding: 1rem;
+    }
+
+    .table th, .table td {
+        padding: 0.5rem;
+    }
+
+    .filterButtons__button {
+        padding: 0.25rem 0.5rem;
+        font-size: 0.875rem;
+    }
+
+    .modal-dialog {
+        margin: 0.5rem;
+    }
+
+    .delivery__details {
+        padding: 0.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .deliveryCard {
+        margin-bottom: 1rem;
+    }
+
+    .table-responsive {
+        margin: 0 -1rem;
+    }
+
+    .filterButtons {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.25rem;
+    }
+
+    .filterButtons__button {
+        flex: 1;
+        margin: 0;
+    }
+} 

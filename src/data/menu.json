@@ -1,105 +1,111 @@
 {
-    "coffee": {
-        "ru": "Кофе",
-        "fi": "Kahvi",
-        "en": "coffee",
+    "kahvit": {
+        "name": {
+            "fi": "Kahvit",
+            "en": "Coffee",
+            "ru": "Кофе"
+        },
         "items": [
             {
-                
+                "id": "kahvi1",
                 "fi": "Espresso",
-                "ru": "Эспрессо",
                 "en": "Espresso",
-                "price": 2
+                "ru": "Эспрессо",
+                "price": 2.0
             },
             {
-                
+                "id": "kahvi2",
                 "fi": "Double Espresso",
-                "ru": "Двойной эспрессо",
                 "en": "Double Espresso",
+                "ru": "Двойной эспрессо",
                 "price": 2.5
             },
             {
-                
+                "id": "kahvi3",
                 "fi": "Latte",
-                "ru": "Латте",
                 "en": "Latte",
+                "ru": "Латте",
                 "price": 2.8
             },
             {
-                
+                "id": "kahvi4",
                 "fi": "Kahvi",
-                "ru": "Американо",
                 "en": "Americano",
+                "ru": "Американо",
                 "price": 2.2
             }
         ]
     },
-    "Tea": {
-        "ru": "Чай",
-        "fi": "Tee",
-        "en": "Tea",
+    "teet": {
+        "name": {
+            "fi": "Teet",
+            "en": "Tea",
+            "ru": "Чай"
+        },
         "items": [
             {
-                
-                "fi": "musta tee",
-                "ru": "Черный чай",
+                "id": "tee1",
+                "fi": "Musta tee",
                 "en": "Black tea",
-                "price": 2
+                "ru": "Черный чай",
+                "price": 2.0
             },
             {
-                
+                "id": "tee2",
                 "fi": "Lemon tea",
-                "ru": "Лимонный чай",
                 "en": "Lemon tea",
+                "ru": "Лимонный чай",
                 "price": 2.5
             },
             {
-                
+                "id": "tee3",
                 "fi": "Mango tee",
-                "ru": "Манговый чай",
                 "en": "Mango tea",
+                "ru": "Манговый чай",
                 "price": 2.8
             },
             {
-                
-                "fi": "vihreä tee",
-                "ru": "Зеленый чай",
+                "id": "tee4",
+                "fi": "Vihreä tee",
                 "en": "Green tea",
+                "ru": "Зеленый чай",
                 "price": 2.2
             }
         ]
     },
-    "Desserts": {
-        "ru": "Десерты",
-        "fi": "Makea",
-        "en": "Desserts",
+    "dessertit": {
+        "name": {
+            "fi": "Makeat",
+            "en": "Desserts",
+            "ru": "Десерты"
+        },
         "items": [
             {
-                
+                "id": "dessertti1",
                 "fi": "Mansikkavohvelit",
-                "ru": "Клубничные вафли",
                 "en": "Strawberry Waffle",
-                "price": 2
+                "ru": "Клубничные вафли",
+                "price": 2.0
             },
             {
-                
+                "id": "dessertti2",
                 "fi": "Kanelirulla",
+                "en": "Cinnamon Roll",
                 "ru": "Рулет с корицей",
-                "en": "Cinnamob=n Roll",
                 "price": 2.5
             },
             {
-                
-                "fi": "Siitrunapiirakka",
-                "ru": "Лимонный пирог",
+                "id": "dessertti3",
+                "fi": "Sitruunapiirakka",
                 "en": "Lemon Pie",
+                "ru": "Лимонный пирог",
                 "price": 2.8
             },
             {
-                
+                "id": "dessertti4",
                 "fi": "Croissant",
-                "ru": "Круасан",
                 "en": "Croissant",
+                "ru": "Круасан",
                 "price": 2.2
             }
         ]

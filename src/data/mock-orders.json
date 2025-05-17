@@ -1,0 +1,57 @@
+{
+    "orders": [
+        {
+            "id": 1,
+            "tableNumber": "1",
+            "products": [
+                {"kahvi1": 2},
+                {"tee1": 1}
+            ],
+            "status": "pending",
+            "timestamp": "2024-03-20T10:00:00.000Z"
+        },
+        {
+            "id": 2,
+            "tableNumber": "3",
+            "products": [
+                {"kahvi3": 1},
+                {"dessertti1": 2}
+            ],
+            "status": "completed",
+            "timestamp": "2024-03-20T09:00:00.000Z",
+            "completedAt": "2024-03-20T09:30:00.000Z"
+        },
+        {
+            "id": 3,
+            "tableNumber": "5",
+            "products": [
+                {"tee3": 1},
+                {"dessertti3": 1}
+            ],
+            "status": "pending",
+            "timestamp": "2024-03-20T10:15:00.000Z"
+        },
+        {
+            "id": 4,
+            "tableNumber": "2",
+            "products": [
+                {"kahvi2": 1},
+                {"dessertti4": 2}
+            ],
+            "status": "completed",
+            "timestamp": "2024-03-20T08:00:00.000Z",
+            "completedAt": "2024-03-20T08:45:00.000Z"
+        },
+        {
+            "id": 5,
+            "tableNumber": "4",
+            "products": [
+                {"kahvi4": 2},
+                {"tee2": 1},
+                {"dessertti2": 1}
+            ],
+            "status": "pending",
+            "timestamp": "2024-03-20T10:30:00.000Z"
+        }
+    ]
+} 

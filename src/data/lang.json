@@ -95,9 +95,9 @@
         "en": "Enter"
     },
     "Naytto": {
-        "fi": "Näyttö",
-        "en": "Display",
-        "ru": "Экран"
+        "fi": "Kahvila",
+        "en": "Cafe",
+        "ru": "Кафе"
     },
     "Etusivu": {
         "fi": "Etusivu",
@@ -357,18 +357,127 @@
         "ru": "Добавление меню",
         "fi": "Valikkon lisääminen",
         "en": "Adding menu"
-    },"close": {
+    },
+    "nav": {
+        "orders": {
+            "fi": "Tilaukset",
+            "en": "Orders",
+            "ru": "Заказы"
+        },
+        "home": {
+            "fi": "Papuposti",
+            "en": "Papuposti",
+            "ru": "Папупости"
+        }
+    },
+    "ordersDashboard": {
+        "title": {
+            "fi": "Tilaukset",
+            "en": "Orders",
+            "ru": "Заказы"
+        },
+        "totalOrders": {
+            "fi": "Tilauksia yhteensä",
+            "en": "Total orders",
+            "ru": "Всего заказов"
+        },
+        "pendingOrders": {
+            "fi": "Avoimet tilaukset",
+            "en": "Pending orders",
+            "ru": "Незавершенные заказы"
+        },
+        "availableTables": {
+            "fi": "Vapaat pöydät",
+            "en": "Available tables",
+            "ru": "Свободные столы"
+        },
+        "reservedTables": {
+            "fi": "Varatut pöydät",
+            "en": "Reserved tables",
+            "ru": "Забронированные столы"
+        },
+        "pieces": {
+            "fi": "kpl",
+            "en": "pcs",
+            "ru": "шт"
+        },
+        "topProducts": {
+            "title": {
+                "fi": "Eniten tilatut tuotteet",
+                "en": "Most ordered products",
+                "ru": "Самые заказываемые продукты"
+            },
+            "product": {
+                "fi": "Tuote",
+                "en": "Product",
+                "ru": "Продукт"
+            },
+            "orders": {
+                "fi": "Tilauksia",
+                "en": "Orders",
+                "ru": "Заказы"
+            },
+            "totalQuantity": {
+                "fi": "Kpl yhteensä",
+                "en": "Total quantity",
+                "ru": "Всего штук"
+            },
+            "sales": {
+                "fi": "Myynti (€)",
+                "en": "Sales (€)",
+                "ru": "Продажи (€)"
+            }
+        },
+        "tableStatus": {
+            "title": {
+                "fi": "Pöytien tila",
+                "en": "Table status",
+                "ru": "Статус столов"
+            },
+            "table": {
+                "fi": "Pöytä",
+                "en": "Table",
+                "ru": "Стол"
+            },
+            "available": {
+                "fi": "Vapaa",
+                "en": "Available",
+                "ru": "Свободен"
+            },
+            "reserved": {
+                "fi": "Varattu",
+                "en": "Reserved",
+                "ru": "Забронирован"
+            }
+        },
+        "stats": {
+            "total": {
+                "fi": "Yhteensä",
+                "en": "Total",
+                "ru": "Всего"
+            },
+            "pending": {
+                "fi": "Käsiteltävänä",
+                "en": "Pending",
+                "ru": "В обработке"
+            },
+            "completed": {
+                "fi": "Valmistunut",
+                "en": "Completed",
+                "ru": "Завершено"
+            }
+        }
+    },
+    "close": {
         "ru": "Закрыть",
         "fi": "Sulkea",
         "en": "Close"
-    }
-,
+    },
     "savechanges": {
         "ru": "Сохранить",
         "fi": "Tallenna muutokset",
         "en": "Save changes"
-    }
-,
+    },
     "price": {
         "ru": "Цена",
         "fi": "Hinta",
